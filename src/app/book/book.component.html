@@ -1,0 +1,14 @@
+<li class="book">
+    <h2>{{ book.name }}</h2>
+    <div class="create-date"> {{ book.createDate }}</div>
+    <p>{{ book.description }}</p>
+    <div class="price">
+        <span>Price: {{ book.price | currency }}
+        </span>
+    </div>
+    <div class="category">
+        <span>Category: {{ book.category }}
+        </span>
+    </div>
+    <button class="button" [class.not-active-button]="!book.isAvailable" (click)="onBuyButton()">Buy</button>
+</li>

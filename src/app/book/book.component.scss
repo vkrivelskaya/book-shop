@@ -1,0 +1,16 @@
+.book {
+    flex: 1;
+}
+
+.button {
+    margin: 20px 5px;
+    padding: 7px 15px;
+    font-size: 15px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px gray;
+    border: none;
+}
+
+.not-active-button {
+    color: gray;
+}

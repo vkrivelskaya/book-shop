@@ -1,0 +1,7 @@
+<h2>{{ title }}</h2>
+<ul class="cart-list">
+    <app-cart-item *ngFor="let cartItem of cart.items"
+    [cartItem]="cartItem"
+    (deleted)="onCartItemDelete($event)">
+    </app-cart-item>
+</ul>
