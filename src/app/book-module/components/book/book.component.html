@@ -1,4 +1,4 @@
-<li class="book">
+<div class="book">
     <h2>{{ book.name }}</h2>
     <div class="create-date"> {{ book.createDate }}</div>
     <p>{{ book.description }}</p>
@@ -11,4 +11,4 @@
         </span>
     </div>
     <button class="button" [class.not-active-button]="!book.isAvailable" (click)="onBuyButton()">Buy</button>
-</li>
+</div>

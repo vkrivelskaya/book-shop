@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
-import { Cart } from './models';
-
+import { Component,ViewChild, ElementRef } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Book Shop';
-  cart = new Cart();
+  @ViewChild ('appTitle')
+  title!: ElementRef | null;
+  //cart = new Cart();
+
+  ngAfterViewInit() {
+    this.title!.nativeElement.textContent = 'Book Shop';
+  }
 }

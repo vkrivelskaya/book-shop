@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
-import { BookModel } from '../models';
+import { BookModel } from '../../../models';
 
 @Component({
   selector: 'app-book',
@@ -14,10 +14,12 @@ export class BookComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    console.log(this.book);
   }
 
   onBuyButton(): void {
-    this.ordered.emit(this.book);
+    if(this.book.isAvailable) {
+      this.ordered.emit(this.book);
+    }
   }
 }
