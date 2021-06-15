@@ -1,4 +1,4 @@
-<div class="book">
+<div appFont [color]="'red'" class="book" >
     <h2>{{ book.name }}</h2>
     <div class="create-date"> {{ book.createDate }}</div>
     <p>{{ book.description }}</p>
@@ -7,7 +7,7 @@
         </span>
     </div>
     <div class="category">
-        <span>Category: {{ book.category }}
+        <span>Category: {{ book.category |  uppercase }}
         </span>
     </div>
     <button class="button" [class.not-active-button]="!book.isAvailable" (click)="onBuyButton()">Buy</button>

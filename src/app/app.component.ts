@@ -7,8 +7,7 @@ import { Component,ViewChild, ElementRef } from '@angular/core';
 export class AppComponent {
   @ViewChild ('appTitle')
   title!: ElementRef | null;
-  //cart = new Cart();
-
+  
   ngAfterViewInit() {
     this.title!.nativeElement.textContent = 'Book Shop';
   }

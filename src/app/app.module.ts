@@ -8,6 +8,8 @@ import { BookComponent } from './book-module/components/book/book.component';
 import { CartComponent } from './cart-module/components/cart/cart.component';
 import { BookListComponent } from './book-module/components/book-list/book-list.component';
 import { CartItemComponent } from './cart-module/components/cart-item/cart-item.component';
+import { HighlightDirective } from './cart-module/directives/highlight.directive';
+import { FontDirective } from './shared-module/directives/font.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { CartItemComponent } from './cart-module/components/cart-item/cart-item.
     BookComponent,
     CartComponent,
     BookListComponent,
-    CartItemComponent
+    CartItemComponent,
+    HighlightDirective,
+    FontDirective
   ],
   imports: [
     BrowserModule,

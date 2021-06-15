@@ -1,19 +1,24 @@
-<h2 class="heading">{{ title }}</h2>
-<ol class="cart-list">
-    <li *ngFor="let cartItem of items">
-        <app-cart-item
-            [cartItem]="cartItem"
-            (deleted)="onCartItemDelete($event)"
-            (countChanged)="onCartItemCountChange($event)"
-            (increaseQuantity)="onIncreaseQuantity($event)"
-            (decreaseQuantity)="onDecreaseQuantity($event)">
-        </app-cart-item>
-    </li>
-</ol>
-<div>
-    <span>Total count: {{totalCount}}</span>
+<div class="cart" *ngIf="items.length; else emptyCart">
+    <h2 class="heading">{{ title }}</h2>
+    <ol class="cart-list">
+        <li *ngFor="let cartItem of items">
+            <app-cart-item
+                [cartItem]="cartItem"
+                (deleted)="onCartItemDelete($event)"
+                (countChanged)="onCartItemCountChange($event)"
+                (increaseQuantity)="onIncreaseQuantity($event)"
+                (decreaseQuantity)="onDecreaseQuantity($event)">
+            </app-cart-item>
+        </li>
+    </ol>
+    <div>
+        <span>Total count: {{totalCount}}</span>
+    </div>
+    <div>
+        <span>Total sum: {{totalSum | currency}}</span>
+    </div>
+    <button (click)="onDeleteButtonClick()">Delete all</button>
 </div>
-<div>
-    <span>Total sum: {{totalSum | currency}}</span>
-</div>
-<button (click)="onDeleteButtonClick()">Delete all</button>
+<ng-template #emptyCart>
+    <p class="empty-cart">The cart is empty!</p>
+</ng-template>

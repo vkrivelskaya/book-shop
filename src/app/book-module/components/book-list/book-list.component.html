@@ -1,5 +1,5 @@
 <ul class="books-list">
-    <li *ngFor="let book of books">
+    <li *ngFor="let book of books | async">
         <app-book class="book"
             [book]="book"
             (ordered)="onBookOrdered($event)">
