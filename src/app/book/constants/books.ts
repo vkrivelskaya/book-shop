@@ -1,4 +1,4 @@
-import { BookModel, CartItem } from "./models";
+import { BookModel } from "../../models/models";
 
 export enum BookCategories {
     Fantasy = 'Fantasy',

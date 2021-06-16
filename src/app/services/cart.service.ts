@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BookModel, CartItem } from '../models';
+import { BookModel, CartItem } from '../models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +16,12 @@ export class CartService {
 
     if(existingItemIndex >= 0) {
         const item = this.items[existingItemIndex];
-        const newItem = {...item};
+        const newItem = CartItem.clone(item);
         newItem.count++;
         newItem.total += item.book.price;
         this.items[existingItemIndex] = newItem;
     } else {
-        this.items = [...this.items, {book: book, count: 1, total: book.price}];
+        this.items = [...this.items, new CartItem(book, 1, book.price)];
     }
 
     this.updateCartData();

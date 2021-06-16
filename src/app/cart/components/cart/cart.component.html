@@ -1,7 +1,16 @@
 <div class="cart" *ngIf="items.length; else emptyCart">
     <h2 class="heading">{{ title }}</h2>
+    <select name="sort-field" [(ngModel)]="orderedBy">
+        <option value="bookPrice">Price</option>
+        <option value="count">Quantity</option>
+        <option value="bookName">Name</option>
+    </select>
+    <select name="sort-direction" [(ngModel)]="orderingDirection">
+        <option value="Descending">Descending</option>
+        <option value="Ascending">Ascending</option>
+    </select>
     <ol class="cart-list">
-        <li *ngFor="let cartItem of items">
+        <li *ngFor="let cartItem of items | orderBy: orderedBy: orderingDirection === 'Descending'">
             <app-cart-item
                 [cartItem]="cartItem"
                 (deleted)="onCartItemDelete($event)"

@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BooksService } from 'src/app/services/books.service';
+import { BooksService } from 'src/app/book/services/books.service';
 import { CartService } from 'src/app/services/cart.service';
-import { BookModel } from '../../../models';
+import { BookModel } from '../../../models/models';
 
 @Component({
   selector: 'app-book-list',

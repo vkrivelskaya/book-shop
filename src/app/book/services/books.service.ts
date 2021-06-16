@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BOOKS } from '../constants';
-import { BookModel } from '../models';
+import { BookModel } from '../../models/models';
 import { Observable, of } from 'rxjs';
+import { BOOKS } from '../constants/books';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class BooksService {
 
   constructor() { }

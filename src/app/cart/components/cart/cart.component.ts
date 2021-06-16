@@ -1,6 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
-import { CartItem } from '../../../models';
+import { CartItem } from '../../../models/models';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +9,8 @@ import { CartItem } from '../../../models';
 })
 export class CartComponent implements OnInit {
   title:string = 'Cart';
-
+  orderedBy: string = 'bookPrice';
+  orderingDirection: string = 'Descending';
 
   constructor(private cartService: CartService) { }
 
