@@ -10,5 +10,5 @@
         <span>Category: {{ book.category |  uppercase }}
         </span>
     </div>
-    <button class="button" [class.not-active-button]="!book.isAvailable" (click)="onBuyButton()">Buy</button>
+    <button class="button" [ngStyle]="{'color': book.isAvailable ? 'black' : 'gray'}" (click)="onBuyButton()">Buy</button>
 </div>

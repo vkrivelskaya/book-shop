@@ -1,18 +1,19 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { CartItem } from '../../../models/models';
+import { CartItem } from 'src/app/core/models/cart-item';
+
 
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartItemComponent implements OnInit {
   @Input() cartItem!: CartItem;
-  @Output() deleted = new EventEmitter<CartItem>();
-  @Output() countChanged = new EventEmitter<CartItem>();
-  @Output() increaseQuantity = new EventEmitter<CartItem>();
-  @Output() decreaseQuantity = new EventEmitter<CartItem>();
+  @Output() itemDelete = new EventEmitter<CartItem>();
+  @Output() countChange = new EventEmitter<CartItem>();
+  @Output() quantityIncrease = new EventEmitter<CartItem>();
+  @Output() quantityDecrease = new EventEmitter<CartItem>();
 
   constructor() { }
 
@@ -21,18 +22,18 @@ export class CartItemComponent implements OnInit {
   }
 
   onDeleteButton(): void {
-    this.deleted.emit(this.cartItem);
+    this.itemDelete.emit(this.cartItem);
   }
 
   onCountChange(): void {
-    this.countChanged.emit(this.cartItem);
+    this.countChange.emit(this.cartItem);
   }
 
   onIncreaseQuantity(): void {
-    this.increaseQuantity.emit(this.cartItem);
+    this.quantityIncrease.emit(this.cartItem);
   }
 
   onDecreaseQuantity(): void {
-    this.decreaseQuantity.emit(this.cartItem);
+    this.quantityDecrease.emit(this.cartItem);
   }
 }

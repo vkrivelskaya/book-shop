@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BookModel, CartItem } from '../models/models';
+import { BookModel } from '../models/book';
+import { CartItem } from '../models/cart-item';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CartService {
-  items: CartItem[] = []
-  totalQuantity: number = 0
-  totalSum: number = 0
+  items: CartItem[] = [];
+  totalQuantity = 0;
+  totalSum = 0;
 
   constructor() { }
 
@@ -15,13 +14,13 @@ export class CartService {
     const existingItemIndex = this.items.findIndex((el) => el.book === book);
 
     if(existingItemIndex >= 0) {
-        const item = this.items[existingItemIndex];
-        const newItem = CartItem.clone(item);
-        newItem.count++;
-        newItem.total += item.book.price;
-        this.items[existingItemIndex] = newItem;
+      const item = this.items[existingItemIndex];
+      const newItem = CartItem.clone(item);
+      newItem.count++;
+      newItem.total += item.book.price;
+      this.items[existingItemIndex] = newItem;
     } else {
-        this.items = [...this.items, new CartItem(book, 1, book.price)];
+      this.items = [...this.items, new CartItem(book, 1, book.price)];
     }
 
     this.updateCartData();
@@ -29,7 +28,7 @@ export class CartService {
 
   removeBook(cartItem: CartItem) {
     this.items = this.items.reduce((acc: CartItem[], el) => {
-        return el !== cartItem ? [...acc, el]: acc
+      return el !== cartItem ? [...acc, el]: acc;
     }, []);
     this.updateCartData();
   }
@@ -53,7 +52,7 @@ export class CartService {
 
   updateCartData() {
     this.totalQuantity = this.items.reduce((acc, el) =>  (acc + el.count), 0);
-    this.totalSum = this.items.reduce((acc, el) =>  (acc + el.total), 0)
+    this.totalSum = this.items.reduce((acc, el) =>  (acc + el.total), 0);
   }
 
   changeItemTotalSum(cartItem: CartItem) {

@@ -13,10 +13,10 @@
         <li *ngFor="let cartItem of items | orderBy: orderedBy: orderingDirection === 'Descending'">
             <app-cart-item
                 [cartItem]="cartItem"
-                (deleted)="onCartItemDelete($event)"
-                (countChanged)="onCartItemCountChange($event)"
-                (increaseQuantity)="onIncreaseQuantity($event)"
-                (decreaseQuantity)="onDecreaseQuantity($event)">
+                (itemDelete)="onCartItemDelete($event)"
+                (countChange)="onCartItemCountChange($event)"
+                (quantityIncrease)="onIncreaseQuantity($event)"
+                (quantityDecrease)="onDecreaseQuantity($event)">
             </app-cart-item>
         </li>
     </ol>

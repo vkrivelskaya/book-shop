@@ -2,7 +2,7 @@
     <li *ngFor="let book of books | async">
         <app-book class="book"
             [book]="book"
-            (ordered)="onBookOrdered($event)">
+            (bookOrder)="onBookOrdered($event)">
         </app-book>
     </li>
 </ul>

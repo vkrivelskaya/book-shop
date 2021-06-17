@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ConfigOptions } from 'src/app/models/models';
+import { ConfigOptions } from '../models/config-options';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 export class ConfigOptionsService {
@@ -12,7 +12,7 @@ export class ConfigOptionsService {
     this.configOptions = {};
   }
 
-  setOptions({id, login, email}: ConfigOptions) {
+  setOptions({ id, login, email }: ConfigOptions) {
     if(id) {
       this.configOptions.id = id;
     }

@@ -1,14 +1,13 @@
-import { Component,ViewChild, ElementRef } from '@angular/core';
+import { Component,ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   @ViewChild ('appTitle')
-  title!: ElementRef | null;
-  
-  ngAfterViewInit() {
-    this.title!.nativeElement.textContent = 'Book Shop';
+  title!: ElementRef;
+  ngAfterViewInit()   {
+    this.title.nativeElement.textContent = 'Book Shop';
   }
 }

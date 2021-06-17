@@ -1,14 +1,14 @@
-import { Directive, ElementRef, HostBinding, HostListener} from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appHighlight]'
+  selector: '[appHighlight]',
 })
 export class HighlightDirective {
 
   constructor(private el: ElementRef) { }
 
-  @HostBinding("style.cursor") get getCursor(){
-    return "pointer";
+  @HostBinding('style.cursor') get getCursor() {
+    return 'pointer';
   }
 
   @HostListener('mouseenter') onMouseEnter() {

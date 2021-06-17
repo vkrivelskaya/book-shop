@@ -1,16 +1,16 @@
-import { Component, OnInit, } from '@angular/core';
-import { CartService } from 'src/app/services/cart.service';
-import { CartItem } from '../../../models/models';
+import { Component, OnInit } from '@angular/core';
+import { CartItem } from 'src/app/core/models/cart-item';
+import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  title:string = 'Cart';
-  orderedBy: string = 'bookPrice';
-  orderingDirection: string = 'Descending';
+  title = 'Cart';
+  orderedBy = 'bookPrice';
+  orderingDirection = 'Descending';
 
   constructor(private cartService: CartService) { }
 

@@ -1,15 +1,15 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
-import { BookModel } from '../../../models/models';
+import { BookModel } from '../../../core/models/book';
 
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookComponent implements OnInit {
   @Input() book!: BookModel;
-  @Output() ordered = new EventEmitter<BookModel>();
+  @Output() bookOrder = new EventEmitter<BookModel>();
 
   constructor() { }
 
@@ -19,7 +19,7 @@ export class BookComponent implements OnInit {
 
   onBuyButton(): void {
     if(this.book.isAvailable) {
-      this.ordered.emit(this.book);
+      this.bookOrder.emit(this.book);
     }
   }
 }
