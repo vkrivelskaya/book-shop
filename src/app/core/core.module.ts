@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ActiveUserService } from './services/active-user.service';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth.service';
+import { ProductResolveService } from './services/product-resolve.service';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AuthService } from './services/auth.service';
     ActiveUserService,
     AuthGuard,
     AuthService,
+    ProductResolveService,
   ],
 })
 export class CoreModule { }

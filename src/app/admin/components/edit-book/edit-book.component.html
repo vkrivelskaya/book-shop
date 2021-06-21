@@ -29,7 +29,7 @@
         <label for="book-date">
             Date
         </label>
-        <input id="book-description" type="date" formControlName="bookDate" value="{{book.createDate}}">
+        <input id="book-description" type="number" formControlName="bookDate" value="{{book.createDate}}">
     </div>
     <div>
         <label for="available">
@@ -41,7 +41,7 @@
         <label for="book-id">
             id
         </label>
-        <input id="book-id" type="number" formControlName="bookID" placeholder="{{book.id}}">
+        <input id="book-id" type="number" disabled formControlName="bookID" placeholder="{{book.id}}">
     </div>
     <button class="button" type="submit">Save</button>
 </form>

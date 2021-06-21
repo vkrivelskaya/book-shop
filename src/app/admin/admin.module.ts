@@ -11,6 +11,7 @@ import { EditBookComponent } from './components/edit-book/edit-book.component';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { BookModule } from '../book/book.module';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BookModule } from '../book/book.module';
     SharedModule,
     AppRoutingModule,
     BookModule,
+    CoreModule,
   ],
   exports: [
     AdminComponent,

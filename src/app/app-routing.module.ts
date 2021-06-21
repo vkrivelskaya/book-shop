@@ -10,8 +10,11 @@ import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orde
 import { UserComponent } from './user/components/user/user.component';
 import { EditBookComponent } from './admin/components/edit-book/edit-book.component';
 import { OrderComponent } from './shared/components/order/order.component';
-import { AuthGuard } from './core/guards/auth.guard';
 import { AuthComponent } from './core/components/auth/auth.component';
+
+import { AuthGuard } from './core/guards/auth.guard';
+
+import { ProductResolveService } from './core/services/product-resolve.service';
 
 const routes: Routes = [
   {
@@ -19,14 +22,16 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {  path: 'products', component: AdminProductsComponent },
-      {  path: 'product/edit/:id', component: EditBookComponent },
+      {  path: 'product/edit/:id', component: EditBookComponent, resolve: {
+        book: ProductResolveService
+      } },
       {  path: 'product/add', component: EditBookComponent },
       {  path: 'orders', component: AdminOrdersComponent },
     ],
     canActivate: [ AuthGuard ],
     data: {
       expectedRole: 'admin'
-    } 
+    }
   },
   {
     path: '',

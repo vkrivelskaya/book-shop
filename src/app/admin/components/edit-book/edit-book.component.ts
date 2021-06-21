@@ -23,8 +23,6 @@ export class EditBookComponent implements OnInit {
   }
 
   getBook(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.bookService.getBook(id)
-      .subscribe(book => this.book = book);
+    this.book = this.route.snapshot.data['book'];
   }
 }
