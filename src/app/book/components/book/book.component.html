@@ -1,14 +1,15 @@
-<div appFont [color]="'red'" class="book" >
-    <h2>{{ book.name }}</h2>
-    <div class="create-date"> {{ book.createDate }}</div>
-    <p>{{ book.description }}</p>
-    <div class="price">
-        <span>Price: {{ book.price | currency }}
-        </span>
+<div class="book" appFont [color]="'red'" class="book" >
+    <div>
+        <span >{{ book.id }}</span> {{ book.name }}
+        <div class="price">
+            <span>Price: {{ book.price | currency }}
+            </span>
+        </div>
     </div>
-    <div class="category">
-        <span>Category: {{ book.category |  uppercase }}
-        </span>
+    <div class="buttons-container">
+        <button class="button">
+            <a class="book-link" routerLink="/product/{{ book.id }}">Description</a>
+        </button>
+        <button class="buy-button button" [ngStyle]="{'color': book.isAvailable ? 'black' : 'gray'}" (click)="onBuyButton()">Buy</button>
     </div>
-    <button class="button" [ngStyle]="{'color': book.isAvailable ? 'black' : 'gray'}" (click)="onBuyButton()">Buy</button>
 </div>

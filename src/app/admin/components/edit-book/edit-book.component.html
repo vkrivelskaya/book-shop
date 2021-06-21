@@ -1,0 +1,47 @@
+<form>
+    <div>
+        <label for="book-name">
+            Name
+        </label>
+        <input id="book-name" type="text" formControlName="bookName" placeholder="{{book.name}}">
+    </div>
+    <div>
+        <label for="book-description">
+            Description
+        </label>
+        <textarea id="book-description" rows="4" cols="50" formControlName="bookDescription" placeholder="{{book.description}}"></textarea>
+    </div>
+    <div>
+        <label for="book-price">
+            Price
+        </label>
+        <input id="book-price" type="number" formControlName="bookPrice" placeholder="{{book.price}}">
+    </div>
+    <div>
+        <label for="category">
+            Category
+        </label>
+        <select id="category" formControlName="bookCategory">
+            <option *ngFor="let category of categories | enumToArray" value="{{category}}" [selected]="book.category === category">{{category}}</option>
+        </select>
+    </div>
+    <div>
+        <label for="book-date">
+            Date
+        </label>
+        <input id="book-description" type="date" formControlName="bookDate" value="{{book.createDate}}">
+    </div>
+    <div>
+        <label for="available">
+            Available
+        </label>
+        <input id="available" type="checkbox" formControlName="available" [checked]="book.isAvailable">
+    </div>
+    <div>
+        <label for="book-id">
+            id
+        </label>
+        <input id="book-id" type="number" formControlName="bookID" placeholder="{{book.id}}">
+    </div>
+    <button class="button" type="submit">Save</button>
+</form>

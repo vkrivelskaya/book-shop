@@ -1,20 +1,39 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OrdersModule } from '../orders/orders.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { FontDirective } from './directives/font.directive';
 import { OrderByPipe } from './pipes/order-by.pipe';
+import { EnumToArrayPipe } from './pipes/enum.pipe';
+import { OrderComponent } from './components/order/order.component';
+import { RouterModule } from '@angular/router';
+import { OrderService } from './services/order.service';
+import { CoreModule } from '../core/core.module';
+import { ActiveUserService } from '../core/services/active-user.service';
 
 @NgModule({
   declarations: [
     FontDirective,
     OrderByPipe,
+    EnumToArrayPipe,
+    OrderComponent
   ],
-  imports: [ ],
+  imports: [
+    FormsModule,
+    RouterModule,
+    ReactiveFormsModule,
+    CommonModule,
+    CoreModule,
+  ],
   exports: [
-    OrdersModule,
     CommonModule,
     FontDirective,
     OrderByPipe,
+    EnumToArrayPipe,
+    OrderComponent
+  ],
+  providers: [
+    OrderService,
   ],
 })
-export class SharedModuleModule { }
+export class SharedModule { }

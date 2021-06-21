@@ -25,6 +25,7 @@ export const BOOKS: BookModel[] = [
     category: BookCategories.Romance,
     createDate: 1912,
     isAvailable: true,
+    id: 1,
   },
   {
     name: 'Animal Farm by George Orwell',
@@ -39,6 +40,7 @@ export const BOOKS: BookModel[] = [
     category: BookCategories.Dystopian,
     createDate: 1945,
     isAvailable: true,
+    id: 2,
   },
   {
     name: 'The Old Man and The Sea by Ernest Hemingway',
@@ -50,5 +52,6 @@ export const BOOKS: BookModel[] = [
     category: BookCategories.Romance,
     createDate: 1952,
     isAvailable: false,
+    id: 3,
   },
 ];

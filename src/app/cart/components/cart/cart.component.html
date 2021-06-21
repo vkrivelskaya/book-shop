@@ -27,6 +27,9 @@
         <span>Total sum: {{totalSum | currency}}</span>
     </div>
     <button (click)="onDeleteButtonClick()">Delete all</button>
+    <button>
+        <a routerLink="/order">Order</a>
+    </button>
 </div>
 <ng-template #emptyCart>
     <p class="empty-cart">The cart is empty!</p>
