@@ -6,7 +6,6 @@ import { CartService } from './services/cart.service';
 import { AuthComponent } from './components/auth/auth.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '../shared/shared.module';
 import { ActiveUserService } from './services/active-user.service';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth.service';
@@ -14,7 +13,7 @@ import { ProductResolveService } from './services/product-resolve.service';
 
 @NgModule({
   declarations: [
-    AuthComponent
+    AuthComponent,
   ],
   imports: [
     CommonModule,

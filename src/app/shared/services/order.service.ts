@@ -8,7 +8,7 @@ export class OrderService {
   constructor() { }
 
   addOrder(order: Order): void {
-    this.orders = [...this.orders, order]
+    this.orders = [...this.orders, order];
   }
 
   getOrders(): Order[] {

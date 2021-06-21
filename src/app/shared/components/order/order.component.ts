@@ -9,7 +9,7 @@ import { OrderService } from '../../services/order.service';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
-  styleUrls: ['./order.component.scss']
+  styleUrls: ['./order.component.scss'],
 })
 export class OrderComponent {
   payments = Payment;
@@ -33,7 +33,7 @@ export class OrderComponent {
       address: this.checkoutForm.value.address,
       payment: this.checkoutForm.value.payment,
       comments: this.checkoutForm.value.comments,
-    }
+    };
     this.checkoutForm.reset();
     this.orderService.addOrder(this.order);
   }

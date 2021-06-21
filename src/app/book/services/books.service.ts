@@ -13,7 +13,7 @@ export class BooksService {
   }
 
   getBook(id: number): Observable<BookModel> {
-    let book = BOOKS.find(book => book.id === id);
+    let book = BOOKS.find(item => item.id === id);
     if (!book) {
       book = {
         name: '',
@@ -22,7 +22,7 @@ export class BooksService {
         category: BookCategories.Fantasy,
         createDate: 0,
         isAvailable: false,
-        id: 0
+        id: 0,
       };
     }
     return of(book);

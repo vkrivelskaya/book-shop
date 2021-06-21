@@ -8,7 +8,7 @@ import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
-    UserComponent
+    UserComponent,
   ],
   imports: [
     CommonModule,

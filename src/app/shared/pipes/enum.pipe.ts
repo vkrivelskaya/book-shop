@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'enumToArray'
+  name: 'enumToArray',
 })
 export class EnumToArrayPipe implements PipeTransform {
-  transform(data: Object): string[] {
+  transform(data: any): string[] {
     const keys = Object.keys(data);
     return keys;
   }

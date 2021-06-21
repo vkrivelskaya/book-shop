@@ -8,7 +8,7 @@ import { BookModel } from 'src/app/core/models/book';
 @Component({
   selector: 'app-edit-book',
   templateUrl: './edit-book.component.html',
-  styleUrls: ['./edit-book.component.scss']
+  styleUrls: ['./edit-book.component.scss'],
 })
 export class EditBookComponent implements OnInit {
   @Input() book!: BookModel;
@@ -23,6 +23,6 @@ export class EditBookComponent implements OnInit {
   }
 
   getBook(): void {
-    this.book = this.route.snapshot.data['book'];
+    this.book = this.route.snapshot.data.book;
   }
 }

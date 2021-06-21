@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { BooksService } from 'src/app/book/services/books.service';
@@ -16,7 +16,6 @@ export class ProductResolveService implements Resolve<BookModel> {
 
   resolve(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot,
   ): Observable<BookModel>|Promise<any>|any  {
     return this.bookService.getBook(Number(route.paramMap.get('id')));
   }

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+
 import { ActiveUserService } from './active-user.service';
-import { users } from '../mocks/users.mock'
+import { users } from '../mocks/users.mock';
 import { User } from '../models/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   constructor(

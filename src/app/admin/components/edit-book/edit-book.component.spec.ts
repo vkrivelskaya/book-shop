@@ -6,11 +6,13 @@ describe('EditBookComponent', () => {
   let component: EditBookComponent;
   let fixture: ComponentFixture<EditBookComponent>;
 
-  beforeEach(async () => {
+  beforeEach(async() => {
     await TestBed.configureTestingModule({
-      declarations: [ EditBookComponent ]
+      declarations: [
+        EditBookComponent,
+      ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { ActiveUserService } from 'src/app/core/services/active-user.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent implements OnInit {
   checkoutForm = this.formBuilder.group({
@@ -26,8 +25,8 @@ export class AuthComponent implements OnInit {
 
   ngOnInit() {
     this.authService.logout();
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-}
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+  }
 
   onSubmit(): void {
     const formValue: any = this.checkoutForm.value;

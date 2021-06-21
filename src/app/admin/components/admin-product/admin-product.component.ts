@@ -5,7 +5,7 @@ import { BookModel } from 'src/app/core/models/book';
 @Component({
   selector: 'app-admin-product',
   templateUrl: './admin-product.component.html',
-  styleUrls: ['./admin-product.component.scss']
+  styleUrls: ['./admin-product.component.scss'],
 })
 export class AdminProductComponent implements OnInit {
   @Input() book!: BookModel;

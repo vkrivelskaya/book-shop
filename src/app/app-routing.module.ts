@@ -23,27 +23,27 @@ const routes: Routes = [
     children: [
       {  path: 'products', component: AdminProductsComponent },
       {  path: 'product/edit/:id', component: EditBookComponent, resolve: {
-        book: ProductResolveService
+        book: ProductResolveService,
       } },
       {  path: 'product/add', component: EditBookComponent },
       {  path: 'orders', component: AdminOrdersComponent },
     ],
     canActivate: [ AuthGuard ],
     data: {
-      expectedRole: 'admin'
-    }
+      expectedRole: 'admin',
+    },
   },
   {
     path: '',
     component: UserComponent,
     children: [
-    { path: 'products-list', component: BookListComponent },
-    { path: 'cart', component: CartComponent },
-    { path: 'product/:id', component: BookDetailComponent },
-    { path: 'order', component: OrderComponent},
-    ]
+      { path: 'products-list', component: BookListComponent },
+      { path: 'cart', component: CartComponent },
+      { path: 'product/:id', component: BookDetailComponent },
+      { path: 'order', component: OrderComponent },
+    ],
   },
-  { path: 'login', component: AuthComponent }
+  { path: 'login', component: AuthComponent },
 ];
 
 @NgModule({
