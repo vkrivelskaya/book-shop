@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartItem } from 'src/app/core/models/cart-item';
+import { CartItemModel } from 'src/app/core/models/cart-item';
 import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService) { }
 
-  get items(): CartItem[] {
+  get items(): CartItemModel[] {
     return this.cartService.getCartItems();
   }
 
@@ -31,11 +31,11 @@ export class CartComponent implements OnInit {
     this.cartService.getTotalSum();
   }
 
-  onCartItemDelete(cartItem: CartItem) {
+  onCartItemDelete(cartItem: CartItemModel) {
     this.cartService.removeBook(cartItem);
   }
 
-  onCartItemCountChange(cartItem: CartItem) {
+  onCartItemCountChange(cartItem: CartItemModel) {
     this.cartService.changeItemTotalSum(cartItem);
     this.cartService.updateCartData();
   }
@@ -44,11 +44,11 @@ export class CartComponent implements OnInit {
     this.cartService.removeAllBooks();
   }
 
-  onIncreaseQuantity(cartItem: CartItem) {
+  onIncreaseQuantity(cartItem: CartItemModel) {
     this.cartService.increaseQuantity(cartItem);
   }
 
-  onDecreaseQuantity(cartItem: CartItem) {
+  onDecreaseQuantity(cartItem: CartItemModel) {
     this.cartService.decreaseQuantity(cartItem);
   }
 }

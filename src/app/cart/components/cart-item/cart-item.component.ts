@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { CartItem } from 'src/app/core/models/cart-item';
+import { CartItemModel } from 'src/app/core/models/cart-item';
 
 
 @Component({
@@ -9,11 +9,11 @@ import { CartItem } from 'src/app/core/models/cart-item';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartItemComponent implements OnInit {
-  @Input() cartItem!: CartItem;
-  @Output() itemDelete = new EventEmitter<CartItem>();
-  @Output() countChange = new EventEmitter<CartItem>();
-  @Output() quantityIncrease = new EventEmitter<CartItem>();
-  @Output() quantityDecrease = new EventEmitter<CartItem>();
+  @Input() cartItem!: CartItemModel;
+  @Output() itemDelete = new EventEmitter<CartItemModel>();
+  @Output() countChange = new EventEmitter<CartItemModel>();
+  @Output() quantityIncrease = new EventEmitter<CartItemModel>();
+  @Output() quantityDecrease = new EventEmitter<CartItemModel>();
 
   constructor() { }
 
