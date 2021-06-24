@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../shared/shared.module';
-import { CoreModule } from '../core/core.module';
-import { UserRoutingModule } from '../user/user-routing.module';
+//import { CoreModule } from '../core/core.module';
+//import { UserRoutingModule } from '../user/user-routing.module';
 
 import { BookComponent } from './components/book/book.component';
 import { BookListComponent } from './pages/book-list/book-list.component';
@@ -21,9 +21,7 @@ import { BooksService } from './services/books.service';
   imports: [
     CommonModule,
     SharedModule,
-    CoreModule,
     RouterModule,
-    UserRoutingModule,
   ],
   exports: [
     BookComponent,

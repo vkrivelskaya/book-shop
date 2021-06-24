@@ -10,6 +10,7 @@ import { UserModule } from './user/user.module';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     RouterModule,
     CartModule,
-    AdminModule,
-    UserModule,
     HttpClientModule,
-
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

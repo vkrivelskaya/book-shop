@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { CoreModule } from '../core/core.module';
+//import { CoreModule } from '../core/core.module';
 
 
 import { FontDirective } from './directives/font.directive';
@@ -27,7 +27,6 @@ import { OrderService } from './services/order.service';
     RouterModule,
     ReactiveFormsModule,
     CommonModule,
-    CoreModule,
   ],
   exports: [
     CommonModule,
