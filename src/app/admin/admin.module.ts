@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-
-import { AdminComponent } from './components/admin/admin.component';
-import { AdminProductsComponent } from './components/admin-products/admin-products.component';
-import { AdminOrdersComponent } from './components/admin-orders/admin-orders.component';
-import { AdminProductComponent } from './components/admin-product/admin-product.component';
-import { EditBookComponent } from './components/edit-book/edit-book.component';
 
 import { SharedModule } from '../shared/shared.module';
-import { AppRoutingModule } from '../app-routing.module';
 import { BookModule } from '../book/book.module';
 import { CoreModule } from '../core/core.module';
+import { AdminRoutingModule } from './admin-routing.module';
+import { AuthGuard } from './guards/auth.guard';
+
+import { AdminComponent } from './pages/admin/admin.component';
+import { AdminProductsComponent } from './pages/admin-products/admin-products.component';
+import { AdminOrdersComponent } from './pages/admin-orders/admin-orders.component';
+import { AdminProductComponent } from './pages/admin-product/admin-product.component';
+import { EditBookComponent } from './pages/edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +23,10 @@ import { CoreModule } from '../core/core.module';
   ],
   imports: [
     CommonModule,
-    RouterModule,
     SharedModule,
-    AppRoutingModule,
     BookModule,
     CoreModule,
+    AdminRoutingModule,
   ],
   exports: [
     AdminComponent,
@@ -37,6 +36,7 @@ import { CoreModule } from '../core/core.module';
     EditBookComponent,
   ],
   providers: [
+    AuthGuard,
   ],
 })
 export class AdminModule { }

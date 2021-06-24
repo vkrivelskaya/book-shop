@@ -7,7 +7,7 @@ import { AuthComponent } from './components/auth/auth.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ActiveUserService } from './services/active-user.service';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from '../admin/guards/auth.guard';
 import { AuthService } from './services/auth.service';
 import { ProductResolveService } from './services/product-resolve.service';
 
@@ -26,7 +26,6 @@ import { ProductResolveService } from './services/product-resolve.service';
     { provide: LocalStorageService, useClass: LocalStorageService },
     CartService,
     ActiveUserService,
-    AuthGuard,
     AuthService,
     ProductResolveService,
   ],

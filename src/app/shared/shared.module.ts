@@ -11,7 +11,7 @@ import { FontDirective } from './directives/font.directive';
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { EnumToArrayPipe } from './pipes/enum.pipe';
 
-import { OrderComponent } from './components/order/order.component';
+import { OrderComponent } from './pages/order/order.component';
 
 import { OrderService } from './services/order.service';
 

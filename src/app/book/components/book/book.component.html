@@ -8,7 +8,7 @@
     </div>
     <div class="buttons-container">
         <button class="button">
-            <a class="book-link" routerLink="/product/{{ book.id }}">Description</a>
+            <a class="book-link" routerLink="/products/{{ book.id }}">Description</a>
         </button>
         <button class="buy-button button" [ngStyle]="{'color': book.isAvailable ? 'black' : 'gray'}" (click)="onBuyButton()">Buy</button>
     </div>

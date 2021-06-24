@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { UserComponent } from './components/user/user.component';
+import { UserComponent } from './pages/user/user.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { UserRoutingModule } from './user-routing.module';
 
 
 @NgModule({
@@ -12,8 +13,7 @@ import { AppRoutingModule } from '../app-routing.module';
   ],
   imports: [
     CommonModule,
-    RouterModule,
-    AppRoutingModule,
+    UserRoutingModule,
   ],
   exports: [
     UserComponent,

@@ -14,7 +14,10 @@ export class AuthService {
 
   login(userName: string, password: string) {
     const user = users.find((el: User) =>  el.login === userName && el.password === password);
-    this.activeUserService.setUser(user || null);
+
+    if (user) {
+      this.activeUserService.setUser(user);
+    }
   }
 
   logout() {
