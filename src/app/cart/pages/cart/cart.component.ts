@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/core/models/cart-item';
-import { CartService } from 'src/app/core/services/cart.service';
+import { CartService } from 'src/app/core/services/cart/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -29,6 +29,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.getTotalCount();
     this.cartService.getTotalSum();
+    this.cartService.getCartItems();
   }
 
   onCartItemDelete(cartItem: CartItem) {

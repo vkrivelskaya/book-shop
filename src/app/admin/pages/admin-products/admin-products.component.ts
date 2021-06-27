@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Observable } from 'rxjs';
-import { BooksService } from 'src/app/book/services/books.service';
+
 import { BookModel } from 'src/app/core/models/book';
+import { HttpDataService } from 'src/app/core/services/http-data/http-data.service';
 
 @Component({
   selector: 'app-admin-products',
@@ -12,13 +14,27 @@ export class AdminProductsComponent implements OnInit {
 
   books!:  Observable<BookModel[]>;
 
-  constructor(private booksService: BooksService) { }
+  constructor(
+    private httpDataService: HttpDataService,
+    ) { }
 
   ngOnInit(): void {
     this.getBooks();
   }
 
   getBooks(): void {
-    this.books = this.booksService.getBooks();
+    this.books = this.httpDataService.getBooks();
+  }
+
+  addBook(book: BookModel): void {
+
+    // this.httpDataService.addBook(book)
+    //   .subscribe(book => {
+    //     this.books.push(book);
+    //   });
+  }
+
+  onAddBookClick() {
+
   }
 }

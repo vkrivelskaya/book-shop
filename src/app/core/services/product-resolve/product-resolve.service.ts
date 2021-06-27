@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
+import { BooksService } from 'src/app/book/services/book/books.service';
 
-import { BooksService } from 'src/app/book/services/books.service';
-
-import { BookModel } from '../models/book';
+import { BookModel } from '../../models/book';
 
 @Injectable()
 export class ProductResolveService implements Resolve<BookModel> {

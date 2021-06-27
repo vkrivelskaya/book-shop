@@ -1,4 +1,13 @@
 <h3>Orders</h3>
-<div *ngFor="let order of orders">
-    <app-order></app-order>
+<div class="order" *ngFor="let order of orders | async">
+    <div>№: {{ order.id }}</div>
+    <div *ngFor="let item of order.items">
+        <div>{{ item.book.name}}</div>
+        <div>{{ item.book.price }}</div>
+    </div>
+    <div>Total sum: {{ order.sum }}</div>
+    <div>Total count: {{ order.quantity }}</div>
+    <div>Delivery address: {{ order.address }}</div>
+    <div>Payment: {{ order.payment }}</div>
+    <div>Comments: {{ order.comments }}</div>
 </div>

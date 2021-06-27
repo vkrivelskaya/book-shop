@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { BookModel } from '../../core/models/book';
+
 import { Observable, of } from 'rxjs';
-import { BookCategories, BOOKS } from '../constants/books';
+import { BookModel } from 'src/app/core/models/book';
+import { BookCategories, BOOKS } from '../../constants/books';
 
 @Injectable()
 export class BooksService {
 
-  private booksUrl = 'api/books';
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-  
   constructor() { }
   getBooks(): Observable<BookModel[]> {
     const books = of(BOOKS);

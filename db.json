@@ -1,0 +1,177 @@
+{
+  "books": [
+    {
+      "name": "The Financier by Theodore Dreiser",
+      "description": "Frank Cowperwood, a fiercely ambitious businessman, emerges as the very embodiment of greed as he relentlessly seeks satisfaction in wealth, women, and power. As Cowperwood deals and double-deals, betrays and is in turn betrayed, his rise and fall come to represent the American success story stripped down to brutal realities-a struggle for spoils without conscience or pity. Dreiser's 1912 classic remains an unsparing social critique as well as a devastating character study of one of the most unforgettable American businessmen in twenty century literature",
+      "price": 10.99,
+      "category": "Romance",
+      "createDate": 1912,
+      "isAvailable": true,
+      "id": 1
+    },
+    {
+      "name": "Animal Farm by George Orwell",
+      "description": "A farm is taken over by its overworked,mistreated animals. With flaming idealism and stirringslogans, they set out to create a paradise of progress,justice, and equality. Thus the stage is set for one ofthe most telling satiric fables ever penned—a razor-edgedfairy tale for grown-ups that records the evolution from revolutionagainst tyranny to a totalitarianism just as terrible",
+      "price": 7.49,
+      "category": "Dystopian",
+      "createDate": 1945,
+      "isAvailable": true,
+      "id": 2
+    },
+    {
+      "name": "The Old Man and The Sea by Ernest Hemingway",
+      "description": "The Old Man and the Sea is one of Hemingway's most enduring works.Told in language of great simplicity and power, it is the story of an old Cubanfisherman, down on his luck, and his supreme ordeal -- a relentless, agonizing battlewith a giant marlin far out in the Gulf Stream.",
+      "price": 9.49,
+      "category": "Romance",
+      "createDate": 1952,
+      "isAvailable": false,
+      "id": 3
+    }
+  ],
+  "orders": [
+    {
+      "items": [
+        {
+          "book": {
+            "name": "The Financier by Theodore Dreiser",
+            "description": "Frank Cowperwood, a fiercely ambitious businessman, emerges as the very embodiment of greed as he relentlessly seeks satisfaction in wealth, women, and power. As Cowperwood deals and double-deals, betrays and is in turn betrayed, his rise and fall come to represent the American success story stripped down to brutal realities-a struggle for spoils without conscience or pity. Dreiser's 1912 classic remains an unsparing social critique as well as a devastating character study of one of the most unforgettable American businessmen in twenty century literature",
+            "price": 10.99,
+            "category": "Romance",
+            "createDate": 1912,
+            "isAvailable": true,
+            "id": 1
+          },
+          "count": 1,
+          "total": 10.99
+        },
+        {
+          "book": {
+            "name": "Animal Farm by George Orwell",
+            "description": "A farm is taken over by its overworked,mistreated animals. With flaming idealism and stirringslogans, they set out to create a paradise of progress,justice, and equality. Thus the stage is set for one ofthe most telling satiric fables ever penned—a razor-edgedfairy tale for grown-ups that records the evolution from revolutionagainst tyranny to a totalitarianism just as terrible",
+            "price": 7.48,
+            "category": "Dystopian",
+            "createDate": 1945,
+            "isAvailable": true,
+            "id": 2
+          },
+          "count": 1,
+          "total": 7.48
+        }
+      ],
+      "sum": 18.47,
+      "quantity": 2,
+      "address": "Minsk",
+      "payment": "Cash",
+      "comments": "gggggggg",
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "book": {
+            "name": "The Financier by Theodore Dreiser",
+            "description": "Frank Cowperwood, a fiercely ambitious businessman, emerges as the very embodiment of greed as he relentlessly seeks satisfaction in wealth, women, and power. As Cowperwood deals and double-deals, betrays and is in turn betrayed, his rise and fall come to represent the American success story stripped down to brutal realities-a struggle for spoils without conscience or pity. Dreiser's 1912 classic remains an unsparing social critique as well as a devastating character study of one of the most unforgettable American businessmen in twenty century literature",
+            "price": 10.99,
+            "category": "Romance",
+            "createDate": 1912,
+            "isAvailable": true,
+            "id": 1
+          },
+          "count": 2,
+          "total": 21.98
+        },
+        {
+          "book": {
+            "name": "Animal Farm by George Orwell",
+            "description": "A farm is taken over by its overworked,mistreated animals. With flaming idealism and stirringslogans, they set out to create a paradise of progress,justice, and equality. Thus the stage is set for one ofthe most telling satiric fables ever penned—a razor-edgedfairy tale for grown-ups that records the evolution from revolutionagainst tyranny to a totalitarianism just as terrible",
+            "price": 7.48,
+            "category": "Dystopian",
+            "createDate": 1945,
+            "isAvailable": true,
+            "id": 2
+          },
+          "count": 1,
+          "total": 7.48
+        }
+      ],
+      "sum": 29.46,
+      "quantity": 3,
+      "address": "Minsk",
+      "payment": "CreditCart",
+      "comments": "",
+      "id": 2
+    },
+    {
+      "items": [
+        {
+          "book": {
+            "name": "The Financier by Theodore Dreiser",
+            "description": "Frank Cowperwood, a fiercely ambitious businessman, emerges as the very embodiment of greed as he relentlessly seeks satisfaction in wealth, women, and power. As Cowperwood deals and double-deals, betrays and is in turn betrayed, his rise and fall come to represent the American success story stripped down to brutal realities-a struggle for spoils without conscience or pity. Dreiser's 1912 classic remains an unsparing social critique as well as a devastating character study of one of the most unforgettable American businessmen in twenty century literature",
+            "price": 10.99,
+            "category": "Romance",
+            "createDate": 1912,
+            "isAvailable": true,
+            "id": 1
+          },
+          "count": 5,
+          "total": 54.95
+        },
+        {
+          "book": {
+            "name": "Animal Farm by George Orwell",
+            "description": "A farm is taken over by its overworked,mistreated animals. With flaming idealism and stirringslogans, they set out to create a paradise of progress,justice, and equality. Thus the stage is set for one ofthe most telling satiric fables ever penned—a razor-edgedfairy tale for grown-ups that records the evolution from revolutionagainst tyranny to a totalitarianism just as terrible",
+            "price": 7.49,
+            "category": "Dystopian",
+            "createDate": 1945,
+            "isAvailable": true,
+            "id": 2
+          },
+          "count": 1,
+          "total": 7.49
+        }
+      ],
+      "sum": 62.440000000000005,
+      "quantity": 6,
+      "address": "LA",
+      "payment": "CreditCart",
+      "comments": "",
+      "id": 3
+    },
+    {
+      "items": [
+        {
+          "book": {
+            "name": "The Financier by Theodore Dreiser",
+            "description": "Frank Cowperwood, a fiercely ambitious businessman, emerges as the very embodiment of greed as he relentlessly seeks satisfaction in wealth, women, and power. As Cowperwood deals and double-deals, betrays and is in turn betrayed, his rise and fall come to represent the American success story stripped down to brutal realities-a struggle for spoils without conscience or pity. Dreiser's 1912 classic remains an unsparing social critique as well as a devastating character study of one of the most unforgettable American businessmen in twenty century literature",
+            "price": 10.99,
+            "category": "Romance",
+            "createDate": 1912,
+            "isAvailable": true,
+            "id": 1
+          },
+          "count": 1,
+          "total": 10.99
+        },
+        {
+          "book": {
+            "name": "Animal Farm by George Orwell",
+            "description": "A farm is taken over by its overworked,mistreated animals. With flaming idealism and stirringslogans, they set out to create a paradise of progress,justice, and equality. Thus the stage is set for one ofthe most telling satiric fables ever penned—a razor-edgedfairy tale for grown-ups that records the evolution from revolutionagainst tyranny to a totalitarianism just as terrible",
+            "price": 7.49,
+            "category": "Dystopian",
+            "createDate": 1945,
+            "isAvailable": true,
+            "id": 2
+          },
+          "count": 1,
+          "total": 7.49
+        }
+      ],
+      "sum": 18.48,
+      "quantity": 2,
+      "address": "NY",
+      "payment": "CreditCart",
+      "comments": "",
+      "id": 4
+    }
+  ]
+}

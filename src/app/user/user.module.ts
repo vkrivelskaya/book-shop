@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 
 import { UserComponent } from './pages/user/user.component';
 import { UserRoutingModule } from './user-routing.module';
+import { BookModule } from '../book/book.module';
+import { CartModule } from '../cart/cart.module';
 
 
 @NgModule({
@@ -14,6 +16,8 @@ import { UserRoutingModule } from './user-routing.module';
     CommonModule,
     UserRoutingModule,
     RouterModule,
+    BookModule,
+    CartModule,
   ],
   exports: [
   ],

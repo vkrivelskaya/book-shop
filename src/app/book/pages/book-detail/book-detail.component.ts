@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { BookModel } from 'src/app/core/models/book';
-import { BooksService } from '../../services/books.service';
+import { HttpDataService } from 'src/app/core/services/http-data/http-data.service';
 
 @Component({
   selector: 'app-book-detail',
@@ -12,13 +12,12 @@ import { BooksService } from '../../services/books.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookDetailComponent implements OnInit {
-  @Input() book!: BookModel;
-  @Output() bookOrder = new EventEmitter<BookModel>();
+  book!: BookModel;
 
   constructor(
     private route: ActivatedRoute,
-    private bookService: BooksService,
     private location: Location,
+    private httpDataService: HttpDataService,
   ) { }
 
   ngOnInit(): void {
@@ -26,18 +25,10 @@ export class BookDetailComponent implements OnInit {
   }
 
   getBook(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.bookService.getBook(id)
-      .subscribe(book => this.book = book);
+    this.book = this.route.snapshot.data.book;
   }
 
   goBack(): void {
     this.location.back();
-  }
-
-  onBuyButton(): void {
-    if(this.book.isAvailable) {
-      this.bookOrder.emit(this.book);
-    }
   }
 }

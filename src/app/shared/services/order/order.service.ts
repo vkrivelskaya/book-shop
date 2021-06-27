@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Order } from '../models/order';
+import { OrderModel } from '../../models/order';
 
 @Injectable(
 )
 export class OrderService {
-  orders: Order[] = [];
+  orders: OrderModel[] = [];
   constructor() { }
 
-  addOrder(order: Order): void {
+  addOrder(order: OrderModel): void {
     this.orders = [...this.orders, order];
   }
 
-  getOrders(): Order[] {
+  getOrders(): OrderModel[] {
     return this.orders;
   }
 }

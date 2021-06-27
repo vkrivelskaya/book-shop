@@ -11,6 +11,7 @@ import { AdminOrdersComponent } from './pages/admin-orders/admin-orders.componen
 import { AdminProductComponent } from './pages/admin-product/admin-product.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,8 @@ import { RouterModule } from '@angular/router';
     BookModule,
     AdminRoutingModule,
     RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   exports: [
   ],

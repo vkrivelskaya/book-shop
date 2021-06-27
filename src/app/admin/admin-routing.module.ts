@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ProductResolveService } from '../core/services/product-resolve.service';
+import { ProductResolveService } from '../core/services/product-resolve/product-resolve.service';
 import { AdminOrdersComponent } from './pages/admin-orders/admin-orders.component';
 import { AdminProductsComponent } from './pages/admin-products/admin-products.component';
 import { AdminComponent } from './pages/admin/admin.component';

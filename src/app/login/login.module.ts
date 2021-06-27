@@ -17,8 +17,6 @@ import { AuthComponent } from './pages/auth/auth.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  exports: [
-    AuthComponent,
-  ],
+  exports: [ ],
 })
 export class LoginModule { }

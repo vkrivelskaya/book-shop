@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BooksService } from 'src/app/book/services/books.service';
-import { CartService } from 'src/app/core/services/cart.service';
+
+import { CartService } from 'src/app/core/services/cart/cart.service';
+import { HttpDataService } from 'src/app/core/services/http-data/http-data.service';
 import { BookModel } from '../../../core/models/book';
 
 @Component({
@@ -12,14 +13,17 @@ import { BookModel } from '../../../core/models/book';
 export class BookListComponent implements OnInit {
   books!:  Observable<BookModel[]>;
 
-  constructor(private booksService: BooksService, private cartService: CartService) { }
+  constructor(
+    private cartService: CartService,
+    private httpDataService: HttpDataService,
+    ) { }
 
   ngOnInit(): void {
     this.getBooks();
   }
 
   getBooks(): void {
-    this.books = this.booksService.getBooks();
+    this.books = this.httpDataService.getBooks();
   }
 
   onBookOrdered(book: BookModel): void {

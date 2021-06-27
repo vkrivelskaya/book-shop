@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="checkoutForm" >
     <div>
         <label for="book-name">
             Name
@@ -37,11 +37,7 @@
         </label>
         <input id="available" type="checkbox" formControlName="available" [checked]="book.isAvailable">
     </div>
-    <div>
-        <label for="book-id">
-            id
-        </label>
-        <input id="book-id" type="number" disabled formControlName="bookID" placeholder="{{book.id}}">
-    </div>
-    <button class="button" type="submit">Save</button>
+    <input id="book-id" type="hidden" formControlName="bookID" placeholder="{{book.id}}">
+
+    <button class="button"  (click)="onSaveButtonClick($event)">Save</button>
 </form>

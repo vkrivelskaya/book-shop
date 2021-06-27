@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { LocalStorageService } from './services/local-storage.service';
-import { CartService } from './services/cart.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ActiveUserService } from './services/active-user.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { BookModule } from '../book/book.module';
+
+import { LocalStorageService } from './services/local-storage/local-storage.service';
+import { CartService } from './services/cart/cart.service';
+
 import { AuthGuard } from './guards/auth.guard';
-import { AuthService } from './services/auth.service';
-import { ProductResolveService } from './services/product-resolve.service';
+import { AuthService } from './services/auth/auth.service';
+import { ProductResolveService } from './services/product-resolve/product-resolve.service';
+import { HttpDataService } from './services/http-data/http-data.service';
+import { TimingInterceptor } from './services/timing-interceptor/timing-interceptor.service';
+import { ActiveUserService } from './services/active-user/active-user.service';
+import { AppSettingService } from './services/app-settings/app-setting.service';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +26,8 @@ import { ProductResolveService } from './services/product-resolve.service';
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    CommonModule,
+    BookModule,
+    HttpClientModule,
   ],
   providers: [
     { provide: LocalStorageService, useClass: LocalStorageService },
@@ -27,6 +36,9 @@ import { ProductResolveService } from './services/product-resolve.service';
     AuthService,
     ProductResolveService,
     AuthGuard,
+    HttpDataService,
+    { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
+    AppSettingService,
   ],
 })
 export class CoreModule { }
