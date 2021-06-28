@@ -1,5 +1,5 @@
 export enum SortField {
-    name = 'name',
-    price = 'price',
-    quantity = 'quantity',
+    name = 'bookName',
+    price = 'bookPrice',
+    quantity = 'count',
 }

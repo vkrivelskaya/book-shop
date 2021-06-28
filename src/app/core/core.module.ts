@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -16,7 +16,11 @@ import { HttpDataService } from './services/http-data/http-data.service';
 import { TimingInterceptor } from './services/timing-interceptor/timing-interceptor.service';
 import { ActiveUserService } from './services/active-user/active-user.service';
 import { AppSettingService } from './services/app-settings/app-setting.service';
+import { Observable } from 'rxjs';
 
+function initializeModule(appSettingsService: AppSettingService) {
+  return () => appSettingsService.loadSettings();
+}
 
 @NgModule({
   declarations: [
@@ -37,8 +41,10 @@ import { AppSettingService } from './services/app-settings/app-setting.service';
     ProductResolveService,
     AuthGuard,
     HttpDataService,
-    { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
     AppSettingService,
+    { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
+    { provide: APP_INITIALIZER, useFactory: initializeModule, deps: [AppSettingService], multi: true },
+
   ],
 })
 export class CoreModule { }

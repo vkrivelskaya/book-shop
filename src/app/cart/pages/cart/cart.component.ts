@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/core/models/cart-item';
+import { AppSettingService } from 'src/app/core/services/app-settings/app-setting.service';
 import { CartService } from 'src/app/core/services/cart/cart.service';
 
 @Component({
@@ -12,7 +13,14 @@ export class CartComponent implements OnInit {
   orderedBy = 'bookPrice';
   orderingDirection = 'Descending';
 
-  constructor(private cartService: CartService) { }
+  constructor(
+    private cartService: CartService,
+    private appSettingsService: AppSettingService,
+  ) { }
+
+  getSettings():void {
+    this.orderedBy = this.appSettingsService.getSetting('sortField')
+  }
 
   get items(): CartItem[] {
     return this.cartService.getCartItems();
@@ -30,6 +38,7 @@ export class CartComponent implements OnInit {
     this.cartService.getTotalCount();
     this.cartService.getTotalSum();
     this.cartService.getCartItems();
+    this.getSettings();
   }
 
   onCartItemDelete(cartItem: CartItem) {
