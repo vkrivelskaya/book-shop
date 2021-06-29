@@ -1,9 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { BookModel } from 'src/app/core/models/book';
-import { HttpDataService } from 'src/app/core/services/http-data/http-data.service';
 
 @Component({
   selector: 'app-book-detail',
@@ -16,19 +14,18 @@ export class BookDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private location: Location,
-    private httpDataService: HttpDataService,
+    public router: Router,
   ) { }
 
-  ngOnInit(): void {
-    this.getBook();
+  ngOnInit(){
+    this.book = this.getBook();
   }
 
-  getBook(): void {
-    this.book = this.route.snapshot.data.book;
+  getBook(): BookModel {
+    return this.route.snapshot.data.book;
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['products']);
   }
 }

@@ -29,7 +29,7 @@
         <label for="book-date">
             Date
         </label>
-        <input id="book-description" type="number" formControlName="bookDate" value="{{book.createDate}}">
+        <input id="book-description" type="number" formControlName="bookDate">
     </div>
     <div>
         <label for="available">
@@ -37,7 +37,6 @@
         </label>
         <input id="available" type="checkbox" formControlName="available" [checked]="book.isAvailable">
     </div>
-    <input id="book-id" type="hidden" formControlName="bookID" placeholder="{{book.id}}">
 
     <button class="button"  (click)="onSaveButtonClick($event)">Save</button>
 </form>

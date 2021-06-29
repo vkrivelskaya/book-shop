@@ -3,7 +3,7 @@
     {
       "name": "The Financier by Theodore Dreiser",
       "description": "Frank Cowperwood, a fiercely ambitious businessman, emerges as the very embodiment of greed as he relentlessly seeks satisfaction in wealth, women, and power. As Cowperwood deals and double-deals, betrays and is in turn betrayed, his rise and fall come to represent the American success story stripped down to brutal realities-a struggle for spoils without conscience or pity. Dreiser's 1912 classic remains an unsparing social critique as well as a devastating character study of one of the most unforgettable American businessmen in twenty century literature",
-      "price": 10.99,
+      "price": 12.99,
       "category": "Romance",
       "createDate": 1912,
       "isAvailable": true,
@@ -13,7 +13,7 @@
       "name": "Animal Farm by George Orwell",
       "description": "A farm is taken over by its overworked,mistreated animals. With flaming idealism and stirringslogans, they set out to create a paradise of progress,justice, and equality. Thus the stage is set for one ofthe most telling satiric fables ever penned—a razor-edgedfairy tale for grown-ups that records the evolution from revolutionagainst tyranny to a totalitarianism just as terrible",
       "price": 7.49,
-      "category": "Dystopian",
+      "category": "SciFi",
       "createDate": 1945,
       "isAvailable": true,
       "id": 2
@@ -26,6 +26,15 @@
       "createDate": 1952,
       "isAvailable": false,
       "id": 3
+    },
+    {
+      "name": "111111111",
+      "description": "222222222222",
+      "price": 0,
+      "category": "Romance",
+      "createDate": 0,
+      "isAvailable": false,
+      "id": 4
     }
   ],
   "orders": [
@@ -172,6 +181,65 @@
       "payment": "CreditCart",
       "comments": "",
       "id": 4
+    },
+    {
+      "items": [
+        {
+          "book": {
+            "name": "Animal Farm by George Orwell",
+            "description": "A farm is taken over by its overworked,mistreated animals. With flaming idealism and stirringslogans, they set out to create a paradise of progress,justice, and equality. Thus the stage is set for one ofthe most telling satiric fables ever penned—a razor-edgedfairy tale for grown-ups that records the evolution from revolutionagainst tyranny to a totalitarianism just as terrible",
+            "price": 7.48,
+            "category": "SciFi",
+            "createDate": 1945,
+            "isAvailable": true,
+            "id": 2
+          },
+          "count": 1,
+          "total": 7.48
+        },
+        {
+          "book": {
+            "name": "The Financier by Theodore Dreiser",
+            "description": "Frank Cowperwood, a fiercely ambitious businessman, emerges as the very embodiment of greed as he relentlessly seeks satisfaction in wealth, women, and power. As Cowperwood deals and double-deals, betrays and is in turn betrayed, his rise and fall come to represent the American success story stripped down to brutal realities-a struggle for spoils without conscience or pity. Dreiser's 1912 classic remains an unsparing social critique as well as a devastating character study of one of the most unforgettable American businessmen in twenty century literature",
+            "price": 15,
+            "category": "Romance",
+            "createDate": 1912,
+            "isAvailable": true,
+            "id": 1
+          },
+          "count": 1,
+          "total": 15
+        }
+      ],
+      "sum": 22.48,
+      "quantity": 2,
+      "address": "Rome",
+      "payment": "CreditCart",
+      "comments": "",
+      "id": 5
+    },
+    {
+      "items": [
+        {
+          "book": {
+            "name": "The Financier by Theodore Dreiser",
+            "description": "Frank Cowperwood, a fiercely ambitious businessman, emerges as the very embodiment of greed as he relentlessly seeks satisfaction in wealth, women, and power. As Cowperwood deals and double-deals, betrays and is in turn betrayed, his rise and fall come to represent the American success story stripped down to brutal realities-a struggle for spoils without conscience or pity. Dreiser's 1912 classic remains an unsparing social critique as well as a devastating character study of one of the most unforgettable American businessmen in twenty century literature",
+            "price": 12.99,
+            "category": "Romance",
+            "createDate": 1912,
+            "isAvailable": true,
+            "id": 1
+          },
+          "count": 1,
+          "total": 12.99
+        }
+      ],
+      "sum": 12.99,
+      "quantity": 1,
+      "address": "Minsk",
+      "payment": "Cash",
+      "comments": "",
+      "id": 6
     }
   ]
 }

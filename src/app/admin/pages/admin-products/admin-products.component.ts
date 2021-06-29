@@ -25,16 +25,4 @@ export class AdminProductsComponent implements OnInit {
   getBooks(): void {
     this.books = this.httpDataService.getBooks();
   }
-
-  addBook(book: BookModel): void {
-
-    // this.httpDataService.addBook(book)
-    //   .subscribe(book => {
-    //     this.books.push(book);
-    //   });
-  }
-
-  onAddBookClick() {
-
-  }
 }

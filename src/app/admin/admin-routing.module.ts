@@ -7,8 +7,6 @@ import { AdminProductsComponent } from './pages/admin-products/admin-products.co
 import { AdminComponent } from './pages/admin/admin.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
 
-
-
 const routes: Routes = [
   {
     path: '',

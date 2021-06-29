@@ -66,9 +66,9 @@ export class OrderComponent  implements OnInit{
       id: this.checkoutForm.value.orderID,
     };
     this.httpDataService.addOrder(this.order)
-      .subscribe(() => this.goBack());
-
-    this.checkoutForm.reset();
-    this.cartService.removeAllBooks();
+      .subscribe(() => {
+        this.goBack();
+        this.cartService.removeAllBooks();
+      });
   }
 }

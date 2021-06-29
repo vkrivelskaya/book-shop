@@ -7,5 +7,5 @@ export interface BookModel {
   category: BookCategories;
   createDate: number;
   isAvailable: boolean;
-  id: number;
+  id?: number;
 }
