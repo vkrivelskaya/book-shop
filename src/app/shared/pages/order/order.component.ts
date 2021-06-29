@@ -15,7 +15,7 @@ import { Payment } from 'src/app/shared/constants/payment';
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss'],
 })
-export class OrderComponent  implements OnInit{
+export class OrderComponent  implements OnInit {
   payments = Payment;
   order!: OrderModel;
 

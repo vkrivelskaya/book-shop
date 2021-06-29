@@ -1,4 +1,4 @@
 export enum BookFilter {
-    date = 'date',
-    category = 'category'
-};
+  date = 'date',
+  category = 'category'
+}

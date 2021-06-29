@@ -42,7 +42,7 @@ export class EditBookComponent implements OnInit {
       category: BookCategories.Romance,
       createDate: 0,
       isAvailable: false,
-    }
+    };
   }
 
   updateBook() {
@@ -55,18 +55,18 @@ export class EditBookComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigateByUrl('admin/products')
+    this.router.navigateByUrl('admin/products');
   }
 
-  onSaveButtonClick(event: any):void {
+  onSaveButtonClick(): void {
     if (this.book) {
       this.updateBook();
       if (this.book.id) {
         this.httpDataService.updateBook(this.book)
-        .subscribe(() => this.goBack());
+          .subscribe(() => this.goBack());
       } else {
         this.httpDataService.addBook(this.book)
-        .subscribe(() => this.goBack());
+          .subscribe(() => this.goBack());
       }
     }
   }

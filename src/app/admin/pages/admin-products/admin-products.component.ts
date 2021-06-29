@@ -16,7 +16,7 @@ export class AdminProductsComponent implements OnInit {
 
   constructor(
     private httpDataService: HttpDataService,
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.getBooks();

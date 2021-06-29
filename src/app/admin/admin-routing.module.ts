@@ -15,7 +15,7 @@ const routes: Routes = [
       {  path: 'products', component: AdminProductsComponent },
       {  path: 'product/edit/:id', component: EditBookComponent,
         resolve: {
-        book: ProductResolveService,
+          book: ProductResolveService,
         } },
       {  path: 'product/add', component: EditBookComponent },
       {  path: 'orders', component: AdminOrdersComponent },
@@ -25,6 +25,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AdminRoutingModule { }

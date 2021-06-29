@@ -38,7 +38,7 @@ export class AppSettingService {
 
         const localStorageSettingsKeys = Object.keys(parsedLocalSettings);
         missedSettings = defaultSettingsKeys
-        .filter((el) => !localStorageSettingsKeys.includes(el));
+          .filter((el) => !localStorageSettingsKeys.includes(el));
       }
 
       if(missedSettings.length === 0) {
@@ -51,14 +51,14 @@ export class AppSettingService {
             }
           });
           observer.complete();
-        })
+        });
       }
     });
   }
 
   getJSON(): Observable<any> {
     return this.http.get(this.jsonURL).pipe(
-      retry(2)
+      retry(2),
     );
   }
 }

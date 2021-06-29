@@ -18,8 +18,8 @@ export class CartComponent implements OnInit {
     private appSettingsService: AppSettingService,
   ) { }
 
-  getSettings():void {
-    this.orderedBy = this.appSettingsService.getSetting('sortField')
+  getSettings(): void {
+    this.orderedBy = this.appSettingsService.getSetting('sortField');
   }
 
   get items(): CartItem[] {

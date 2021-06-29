@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { BookModel } from 'src/app/core/models/book';
@@ -17,7 +17,7 @@ export class BookDetailComponent implements OnInit {
     public router: Router,
   ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.book = this.getBook();
   }
 

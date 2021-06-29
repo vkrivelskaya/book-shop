@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { BookCategories } from 'src/app/book/constants/books';
 import { BookModel } from '../../models/book';
-import { CartItem } from '../../models/cart-item';
 
 @Injectable()
 export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
-    const books:BookModel[] = [
+    const books: BookModel[] = [
       {
         name: 'The Financier by Theodore Dreiser',
         description: 'Frank Cowperwood, a fiercely ambitious businessman, ' +

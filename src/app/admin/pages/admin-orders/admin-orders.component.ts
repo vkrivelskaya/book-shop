@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CartItem } from 'src/app/core/models/cart-item';
 import { CartService } from 'src/app/core/services/cart/cart.service';
 
 import { HttpDataService } from 'src/app/core/services/http-data/http-data.service';

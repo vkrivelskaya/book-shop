@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { BookModel } from '../../models/book';
 import { Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 import { OrderModel } from 'src/app/shared/models/order';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class HttpDataService {
   private booksUrl = 'http://localhost:3000/books';
   private ordersUrl = 'http://localhost:3000/orders';
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
   constructor(

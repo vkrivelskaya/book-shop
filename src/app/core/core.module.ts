@@ -16,7 +16,6 @@ import { HttpDataService } from './services/http-data/http-data.service';
 import { TimingInterceptor } from './services/timing-interceptor/timing-interceptor.service';
 import { ActiveUserService } from './services/active-user/active-user.service';
 import { AppSettingService } from './services/app-settings/app-setting.service';
-import { Observable } from 'rxjs';
 
 function initializeModule(appSettingsService: AppSettingService) {
   return () => appSettingsService.loadSettings();
@@ -42,7 +41,7 @@ function initializeModule(appSettingsService: AppSettingService) {
     AuthGuard,
     HttpDataService,
     AppSettingService,
-    //{ provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
     { provide: APP_INITIALIZER, useFactory: initializeModule, deps: [AppSettingService], multi: true },
 
   ],

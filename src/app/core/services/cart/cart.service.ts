@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+
 import { BookModel } from '../../models/book';
 import { CartItem } from '../../models/cart-item';
 

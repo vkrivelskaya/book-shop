@@ -16,8 +16,8 @@ const routes: Routes = [
     children: [
       { path: 'products', component: BookListComponent },
       { path: 'products/:id', component: BookDetailComponent,
-      resolve: {
-        book: ProductResolveService,
+        resolve: {
+          book: ProductResolveService,
         } },
       { path: 'cart', component: CartComponent },
       { path: 'order', component: OrderComponent },
@@ -27,6 +27,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class UserRoutingModule { }

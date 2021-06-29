@@ -1,7 +1,7 @@
-import { CartItem } from "src/app/core/models/cart-item";
+import { CartItem } from 'src/app/core/models/cart-item';
 
 export interface OrderModel {
-  items: CartItem[],
+  items: CartItem[];
   sum: number;
   quantity: number;
   address: string;
