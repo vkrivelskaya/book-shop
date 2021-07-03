@@ -11,13 +11,12 @@ export class TimingInterceptor  implements HttpInterceptor {
     const start = performance.now();
     const filterUrl = 'books';
 
-    return next.handle(req.clone())
+    return next.handle(req)
       .pipe(
-        filter(event => event.type === HttpEventType.Response && Boolean(event.url?.includes(filterUrl))))
-      .pipe(tap((val: any) => {
-        console.log(`${val.url} took ` + (performance.now() - start).toFixed(2) + 'ms');
-      }));
-
-
+        filter(event => event.type === HttpEventType.Response && Boolean(event.url?.includes(filterUrl))),
+        tap((val: any) => {
+          console.log(`${val.url} took ` + (performance.now() - start).toFixed(2) + 'ms');
+        })
+    );
   }
 }

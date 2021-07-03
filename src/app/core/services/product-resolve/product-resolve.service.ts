@@ -1,22 +1,30 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, Resolve } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { filter, take } from 'rxjs/operators';
+import { GetBook } from 'src/app/book/store/actions/book.actions';
+import { selectSelectedBook } from 'src/app/book/store/selectors/book.selector';
+import { AppState } from 'src/app/store/state/app.state';
 
 import { BookModel } from '../../models/book';
-import { HttpDataService } from '../http-data/http-data.service';
 
 @Injectable()
 export class ProductResolveService implements Resolve<BookModel> {
 
   constructor(
-    private route: ActivatedRoute,
-    private httpDataService: HttpDataService,
+    private store: Store<AppState>,
   ) { }
 
   resolve(
     route: ActivatedRouteSnapshot,
   ): Observable<BookModel>|Promise<any>|any  {
-    return this.httpDataService.getBook(Number(route.paramMap.get('id')));
+    this.store.dispatch(new GetBook({id: Number(route.paramMap.get('id'))}));
+    return this.store.pipe(
+      select(selectSelectedBook),
+      filter(data => !!data),
+      take(1),
+    );
   }
 }
 
