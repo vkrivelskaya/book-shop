@@ -1,11 +1,11 @@
-import { BookModel } from "src/app/core/models/book";
+import { BookModel } from 'src/app/core/models/book';
 
 export interface BookState {
-    books: BookModel[]|null;
-    selectedBook: BookModel|null;
+  books: BookModel[]|null;
+  selectedBook: BookModel|null;
 }
 
 export const initialBookState: BookState = {
-    books: null,
-    selectedBook: null,
-}
+  books: null,
+  selectedBook: null,
+};

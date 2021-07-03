@@ -19,7 +19,7 @@ export class ProductResolveService implements Resolve<BookModel> {
   resolve(
     route: ActivatedRouteSnapshot,
   ): Observable<BookModel>|Promise<any>|any  {
-    this.store.dispatch(new GetBook({id: Number(route.paramMap.get('id'))}));
+    this.store.dispatch(new GetBook({ id: Number(route.paramMap.get('id')) }));
     return this.store.pipe(
       select(selectSelectedBook),
       filter(data => !!data),

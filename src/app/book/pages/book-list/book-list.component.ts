@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 
 import { CartService } from 'src/app/core/services/cart/cart.service';
-import { HttpDataService } from 'src/app/core/services/http-data/http-data.service';
 import { AppState } from 'src/app/store/state/app.state';
 import { BookModel } from '../../../core/models/book';
 import { GetBooks } from '../../store/actions/book.actions';

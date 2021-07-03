@@ -41,7 +41,7 @@ function initializeModule(appSettingsService: AppSettingService) {
     AuthGuard,
     HttpDataService,
     AppSettingService,
-    //{ provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
     { provide: APP_INITIALIZER, useFactory: initializeModule, deps: [AppSettingService], multi: true },
 
   ],
