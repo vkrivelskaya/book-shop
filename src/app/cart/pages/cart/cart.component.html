@@ -1,36 +1,36 @@
 <div class="cart" *ngIf="items.length; else emptyCart">
-    <h2 class="heading">{{ title }}</h2>
-    <select name="sort-field" [(ngModel)]="orderedBy">
-        <option value="bookPrice">Price</option>
-        <option value="count">Quantity</option>
-        <option value="bookName">Name</option>
-    </select>
-    <select name="sort-direction" [(ngModel)]="orderingDirection">
-        <option value="Descending">Descending</option>
-        <option value="Ascending">Ascending</option>
-    </select>
-    <ol class="cart-list">
-        <li *ngFor="let cartItem of items | orderBy: orderedBy: orderingDirection === 'Descending'">
-            <app-cart-item
-                [cartItem]="cartItem"
-                (itemDelete)="onCartItemDelete($event)"
-                (countChange)="onCartItemCountChange($event)"
-                (quantityIncrease)="onIncreaseQuantity($event)"
-                (quantityDecrease)="onDecreaseQuantity($event)">
-            </app-cart-item>
-        </li>
-    </ol>
-    <div>
-        <span>Total count: {{totalCount}}</span>
-    </div>
-    <div>
-        <span>Total sum: {{totalSum | currency}}</span>
-    </div>
-    <button (click)="onDeleteButtonClick()">Delete all</button>
-    <button>
-        <a routerLink="/order">Order</a>
-    </button>
+  <h2 class="heading">{{ title }}</h2>
+  <select name="sort-field" [(ngModel)]="orderedBy">
+    <option value="bookPrice">Price</option>
+    <option value="count">Quantity</option>
+    <option value="bookName">Name</option>
+  </select>
+  <select name="sort-direction" [(ngModel)]="orderingDirection">
+    <option value="Descending">Descending</option>
+    <option value="Ascending">Ascending</option>
+  </select>
+  <ol class="cart-list">
+    <li *ngFor="let cartItem of items | orderBy: orderedBy: orderingDirection === 'Descending'">
+      <app-cart-item
+        [cartItem]="cartItem"
+        (itemDelete)="onCartItemDelete($event)"
+        (countChange)="onCartItemCountChange($event)"
+        (quantityIncrease)="onIncreaseQuantity($event)"
+        (quantityDecrease)="onDecreaseQuantity($event)">
+      </app-cart-item>
+    </li>
+  </ol>
+  <div>
+    <span>Total count: {{totalCount}}</span>
+  </div>
+  <div>
+    <span>Total sum: {{totalSum | currency}}</span>
+  </div>
+  <button (click)="onDeleteButtonClick()">Delete all</button>
+  <button>
+    <a routerLink="/order">Order</a>
+  </button>
 </div>
 <ng-template #emptyCart>
-    <p class="empty-cart">The cart is empty!</p>
+  <p class="empty-cart">The cart is empty!</p>
 </ng-template>

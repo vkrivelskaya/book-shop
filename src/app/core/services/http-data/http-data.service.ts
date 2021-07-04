@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { BookModel } from '../../models/book';
-import { Observable } from 'rxjs';
-import { OrderModel } from 'src/app/shared/models/order';
+import { OrderModel } from '../../../shared/models/order';
 
 @Injectable()
 export class HttpDataService {

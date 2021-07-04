@@ -3,9 +3,10 @@ import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
-import { GetBook } from 'src/app/book/store/actions/book.actions';
-import { selectSelectedBook } from 'src/app/book/store/selectors/book.selector';
-import { AppState } from 'src/app/store/state/app.state';
+
+import { GetBook } from '../../../book/store/actions/book.actions';
+import { selectSelectedBook } from '../../../book/store/selectors/book.selector';
+import { AppState } from '../../../store/state/app.state';
 
 import { BookModel } from '../../models/book';
 

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { BookModel } from 'src/app/core/models/book';
+import { BookModel } from '../../../core/models/book';
 
 @Component({
   selector: 'app-book-detail',
@@ -10,7 +10,7 @@ import { BookModel } from 'src/app/core/models/book';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookDetailComponent implements OnInit {
-  book!: BookModel;
+  book: BookModel;
 
   constructor(
     private route: ActivatedRoute,

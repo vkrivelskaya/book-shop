@@ -3,9 +3,10 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
-import { BookModel } from 'src/app/core/models/book';
-import { HttpDataService } from 'src/app/core/services/http-data/http-data.service';
-import { AppState } from 'src/app/store/state/app.state';
+
+import { BookModel } from '../../../core/models/book';
+import { HttpDataService } from '../../../core/services/http-data/http-data.service';
+import { AppState } from '../../../store/state/app.state';
 import { GetBooks, GetBooksError, GetBooksSuccess, BookActionsEnum } from '../actions/book.actions';
 import { GetBook, GetBookError, GetBookSuccess } from '../actions/book.actions';
 

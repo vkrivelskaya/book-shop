@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { BookModule } from '../book/book.module';
@@ -10,8 +12,7 @@ import { AdminProductsComponent } from './pages/admin-products/admin-products.co
 import { AdminOrdersComponent } from './pages/admin-orders/admin-orders.component';
 import { AdminProductComponent } from './pages/admin-product/admin-product.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
-import { RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -29,10 +30,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
-  ],
-  exports: [
-  ],
-  providers: [
   ],
 })
 export class AdminModule { }

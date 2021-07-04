@@ -1,13 +1,11 @@
 <div class="buttons-container">
-    <button class="button">
-        <a class="add-book-link" routerLink="/admin/product/add">Add new book</a>
-    </button>
+  <button class="button">
+    <a class="add-book-link" routerLink="/admin/product/add">Add new book</a>
+  </button>
 </div>
 <ul class="books-list">
-    <li *ngFor="let book of books | async">
-        <app-admin-product class="book"
-            [book]="book"
-        >
-        </app-admin-product>
-    </li>
+  <li *ngFor="let book of books | async">
+    <app-admin-product class="book" [book]="book">
+    </app-admin-product>
+  </li>
 </ul>

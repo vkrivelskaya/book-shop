@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Observable } from 'rxjs';
 
-import { BookModel } from 'src/app/core/models/book';
-import { HttpDataService } from 'src/app/core/services/http-data/http-data.service';
+import { BookModel } from '../../../core/models/book';
+import { HttpDataService } from '../../../core/services/http-data/http-data.service';
 
 @Component({
   selector: 'app-admin-products',
@@ -11,18 +10,17 @@ import { HttpDataService } from 'src/app/core/services/http-data/http-data.servi
   styleUrls: ['./admin-products.component.scss'],
 })
 export class AdminProductsComponent implements OnInit {
-
-  books!:  Observable<BookModel[]>;
+  books:  Observable<BookModel[]>;
 
   constructor(
     private httpDataService: HttpDataService,
   ) { }
 
   ngOnInit(): void {
-    this.getBooks();
+    this.books = this.getBooks();
   }
 
-  getBooks(): void {
-    this.books = this.httpDataService.getBooks();
+  getBooks(): Observable<BookModel[]> {
+    return this.httpDataService.getBooks();
   }
 }

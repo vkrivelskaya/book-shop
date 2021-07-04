@@ -1,10 +1,10 @@
 .books-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
 
-    .book {
-        flex: 1;
-    }
+  .book {
+    flex: 1;
+  }
 }

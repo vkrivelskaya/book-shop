@@ -1,12 +1,12 @@
 <div class="book">
-    <div>
-        <span >{{ book.id }}</span> {{ book.name }}
-        <div class="price">
-            <span>Price: {{ book.price | currency }}
-            </span>
-        </div>
+  <div>
+    <span >{{ book.id }}</span> {{ book.name }}
+    <div class="price">
+      <span>Price: {{ book.price | currency }}
+      </span>
     </div>
-    <button class="button">
-        <a class="edit-link" routerLink="/admin/product/edit/{{book.id}}">Edit</a>
-    </button>
+  </div>
+  <button class="button">
+    <a class="edit-link" routerLink="/admin/product/edit/{{ book.id }}">Edit</a>
+  </button>
 </div>

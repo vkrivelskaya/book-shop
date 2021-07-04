@@ -1,4 +1,4 @@
-import { CartItem } from 'src/app/core/models/cart-item';
+import { CartItem } from '../../core/models/cart-item';
 
 export interface OrderModel {
   items: CartItem[];

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { User } from 'src/app/core/models/user';
+
+import { User } from '../../../core/models/user';
 
 @Injectable()
 export class ActiveUserService {

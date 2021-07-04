@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CartItem } from 'src/app/core/models/cart-item';
-import { AppSettingService } from 'src/app/core/services/app-settings/app-setting.service';
-import { CartService } from 'src/app/core/services/cart/cart.service';
+
+import { CartItem } from '../../../core/models/cart-item';
+
+import { AppSettingService } from '../../../core/services/app-settings/app-setting.service';
+import { CartService } from '../../../core/services/cart/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -18,8 +20,8 @@ export class CartComponent implements OnInit {
     private appSettingsService: AppSettingService,
   ) { }
 
-  getSettings(): void {
-    this.orderedBy = this.appSettingsService.getSetting('sortField');
+  getSettings(): any {
+    return this.appSettingsService.getSetting('sortField');
   }
 
   get items(): CartItem[] {
@@ -38,7 +40,7 @@ export class CartComponent implements OnInit {
     this.cartService.getTotalCount();
     this.cartService.getTotalSum();
     this.cartService.getCartItems();
-    this.getSettings();
+    this.orderedBy = this.getSettings();
   }
 
   onCartItemDelete(cartItem: CartItem) {

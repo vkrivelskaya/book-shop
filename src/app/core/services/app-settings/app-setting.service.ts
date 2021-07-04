@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 import { retry } from 'rxjs/operators';
+
 import { defaultSettings } from '../../constants/settings';
 import { SettingsModel } from '../../models/settings-model';
 import { LocalStorageService } from '../local-storage/local-storage.service';

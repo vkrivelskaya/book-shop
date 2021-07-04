@@ -1,43 +1,43 @@
 <div class="order" *ngFor="let item of items">
-    <div class="cart-item">
-        <h4 class="cart-item-heading">{{ item.book.name }}</h4>
-        <div class="price">
-            <span>{{ item.book.price | currency }}
-            </span>
-        </div>
-        <div class="count">
-            <span>{{ item.count }} pc
-            </span>
-        </div>
+  <div class="cart-item">
+    <h4 class="cart-item-heading">{{ item.book.name }}</h4>
+    <div class="price">
+      <span>{{ item.book.price | currency }}
+      </span>
     </div>
+    <div class="count">
+      <span>{{ item.count }} pc
+      </span>
+    </div>
+  </div>
 </div>
 <div class="total-count">
-    <span>Total count: {{totalCount}}</span>
+  <span>Total count: {{totalCount}}</span>
 </div>
 <div class="total-sum">
-    <span>Total sum: {{totalSum | currency}}</span>
+  <span>Total sum: {{totalSum | currency}}</span>
 </div>
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="address">
-            Delivery address
-        </label>
-        <input id="name" type="text" formControlName="address">
-    </div>
-    <div>
-        <label for="payment">
-            Payment
-        </label>
-        <select id="payment" formControlName="payment">
-            <option *ngFor="let payment of payments | enumToArray" value="{{payment}}">{{ payment }}</option>
-        </select>
-    </div>
-    <div>
-        <label for="comments">
-        Comments
-        </label>
-        <textarea id="comments" formControlName="comments" rows="4" cols="50"></textarea>
-    </div>
-    <input type="hidden" formControlName="orderID">
-    <button class="button" type="submit">Purchase</button>
+  <div>
+    <label for="address">
+      Delivery address
+    </label>
+    <input id="name" type="text" formControlName="address">
+  </div>
+  <div>
+    <label for="payment">
+      Payment
+    </label>
+    <select id="payment" formControlName="payment">
+      <option *ngFor="let payment of payments | enumToArray" value="{{payment}}">{{ payment }}</option>
+    </select>
+  </div>
+  <div>
+    <label for="comments">
+      Comments
+    </label>
+    <textarea id="comments" formControlName="comments" rows="4" cols="50"></textarea>
+  </div>
+  <input type="hidden" formControlName="orderID">
+  <button class="button" type="submit">Purchase</button>
  </form>

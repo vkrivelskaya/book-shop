@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Location } from '@angular/common';
 
-import { CartItem } from 'src/app/core/models/cart-item';
+import { CartItem } from '../../../core/models/cart-item';
 import { OrderModel } from '../../models/order';
 
-import { CartService } from 'src/app/core/services/cart/cart.service';
-import { HttpDataService } from 'src/app/core/services/http-data/http-data.service';
+import { CartService } from '../../../core/services/cart/cart.service';
+import { HttpDataService } from '../../../core/services/http-data/http-data.service';
 
-import { Payment } from 'src/app/shared/constants/payment';
+import { Payment } from '../../../shared/constants/payment';
 
 @Component({
   selector: 'app-order',
@@ -17,14 +17,14 @@ import { Payment } from 'src/app/shared/constants/payment';
 })
 export class OrderComponent  implements OnInit {
   payments = Payment;
-  order!: OrderModel;
-
+  order: OrderModel;
   checkoutForm = this.formBuilder.group({
     address: '',
     payment: 'Payment.Cash',
     comments: '',
     orderID: 0,
   });
+
   constructor(
     private formBuilder: FormBuilder,
     private cartService: CartService,

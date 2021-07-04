@@ -1,4 +1,4 @@
-import { BookModel } from 'src/app/core/models/book';
+import { BookModel } from '../../../core/models/book';
 
 export interface BookState {
   books: BookModel[]|null;

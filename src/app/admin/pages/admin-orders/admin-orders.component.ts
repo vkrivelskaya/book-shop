@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CartService } from 'src/app/core/services/cart/cart.service';
 
-import { HttpDataService } from 'src/app/core/services/http-data/http-data.service';
+import { CartService } from '../../../core/services/cart/cart.service';
+import { HttpDataService } from '../../../core/services/http-data/http-data.service';
+
 import { OrderModel } from '../../../shared/models/order';
 
 @Component({
@@ -11,7 +12,7 @@ import { OrderModel } from '../../../shared/models/order';
   styleUrls: ['./admin-orders.component.scss'],
 })
 export class AdminOrdersComponent implements OnInit {
-  orders!:  Observable<OrderModel[]>;
+  orders:  Observable<OrderModel[]>;
 
   constructor(
     private httpDataService: HttpDataService,
@@ -19,10 +20,10 @@ export class AdminOrdersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getOrders();
+    this.orders = this.getOrders();
   }
 
-  getOrders(): void {
-    this.orders = this.httpDataService.getOrders();
+  getOrders(): Observable<OrderModel[]> {
+    return this.httpDataService.getOrders();
   }
 }

@@ -2,9 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { BookCategories } from 'src/app/book/constants/books';
-import { BookModel } from 'src/app/core/models/book';
-import { HttpDataService } from 'src/app/core/services/http-data/http-data.service';
+import { BookCategories } from '../../../book/constants/books';
+import { BookModel } from '../../../core/models/book';
+import { HttpDataService } from '../../../core/services/http-data/http-data.service';
 
 @Component({
   selector: 'app-edit-book',
@@ -12,9 +12,10 @@ import { HttpDataService } from 'src/app/core/services/http-data/http-data.servi
   styleUrls: ['./edit-book.component.scss'],
 })
 export class EditBookComponent implements OnInit {
-  checkoutForm = new FormGroup({});
-  @Input() book!: BookModel;
+  @Input() book: BookModel;
+  checkoutForm: FormGroup;
   categories = BookCategories;
+
   constructor(
     private route: ActivatedRoute,
     private httpDataService: HttpDataService,
@@ -35,7 +36,8 @@ export class EditBookComponent implements OnInit {
   }
 
   getBook(): BookModel {
-    return  this.route.snapshot.data.book || {
+    const routeBook = this.route.snapshot.data.book;
+    return routeBook ? Object.assign({}, routeBook) : {
       name: '',
       description: '',
       price: 0,

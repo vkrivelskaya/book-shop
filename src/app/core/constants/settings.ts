@@ -1,5 +1,5 @@
-import { BookFilter } from 'src/app/book/constants/filter';
-import { SortField } from 'src/app/cart/constants/sort-field';
+import { BookFilter } from '../../book/constants/filter';
+import { SortField } from '../../cart/constants/sort-field';
 import { SettingsModel } from '../models/settings-model';
 
 

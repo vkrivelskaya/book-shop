@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 
-import { CartService } from 'src/app/core/services/cart/cart.service';
-import { AppState } from 'src/app/store/state/app.state';
+import { CartService } from '../../../core/services/cart/cart.service';
+import { AppState } from '../../../store/state/app.state';
 import { BookModel } from '../../../core/models/book';
 import { GetBooks } from '../../store/actions/book.actions';
 import { selectBooksList } from '../../store/selectors/book.selector';

@@ -13,8 +13,9 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {  path: 'products', component: AdminProductsComponent },
-      {  path: 'product/edit/:id', component: EditBookComponent,
-        resolve: {
+      {  path: 'product/edit/:id',
+         component: EditBookComponent,
+         resolve: {
           book: ProductResolveService,
         } },
       {  path: 'product/add', component: EditBookComponent },

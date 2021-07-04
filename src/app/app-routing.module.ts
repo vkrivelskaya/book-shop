@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
-  // { path: 'login', component: AuthComponent },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
@@ -17,8 +17,13 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./user/user.module').then(m => m.UserModule),
   },
-  { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
-  { path: '**',   redirectTo: '', pathMatch: 'full' },
+  { path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+  },
+  { path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({

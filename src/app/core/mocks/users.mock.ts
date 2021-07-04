@@ -1,4 +1,4 @@
-import { UserRights } from 'src/app/shared/constants/user-rights';
+import { UserRights } from '../../shared/constants/user-rights';
 import { User } from '../models/user';
 
 export const users: User[] = [
