@@ -1,30 +1,16 @@
-import { BookActions, BookActionsEnum } from '../actions/book.actions';
-import { BookState, initialBookState } from '../state/book.state';
+import { initialBookState } from '../state/book.state';
+import * as BookPageActions from '../actions/book.actions';
+import { createReducer, on } from '@ngrx/store';
 
-export function booksReducers(
-  state = initialBookState,
-  action: BookActions,
-): BookState {
-  switch(action.type) {
-    case BookActionsEnum.GetBooksSuccess: {
-      return {
-        ...state,
-        books: action.payload,
-      };
-    }
-    case BookActionsEnum.GetBooksError: {
-      return {
-        ...state,
-        books: [],
-      };
-    }
-    case BookActionsEnum.GetBookSuccess: {
-      return {
-        ...state,
-        selectedBook: action.payload,
-      };
-    }
-    default:
-      return state;
-  }
-}
+
+export const booksReducers = createReducer (
+  initialBookState,
+  on(BookPageActions.GetBooksSuccess,
+  (state, { books }) => ({ ...state, books })),
+  on(BookPageActions.GetBooksError,
+    (state) => ({ ...state, books: [] })),
+  on(BookPageActions.GetBookSuccess,
+    (state, { selectedBook }) => ({ ...state, selectedBook })),
+  on(BookPageActions.GetBookError,
+    (state) => ({ ...state, selectedBook: null })),
+);

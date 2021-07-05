@@ -1,4 +1,4 @@
-import { UserRights } from 'src/app/shared/constants/user-rights';
+import { UserRights } from 'src/app/core/constants/user-rights';
 
 export interface User {
   login: string;

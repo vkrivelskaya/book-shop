@@ -8,3 +8,41 @@
     flex: 1;
   }
 }
+
+.buttons-container {
+  display: flex;
+}
+
+.button {
+  margin: 20px 5px;
+  padding: 7px 15px;
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 5px gray;
+  border: none;
+  width: fit-content;
+  color: black;
+  width: 20%;
+}
+
+.book-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: 1px solid grey;
+  border-radius: 5px;
+  box-shadow: 2px 2px 7px gray;
+  padding: 10px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.buttons-container-admin {
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.link {
+  text-decoration: none;
+}

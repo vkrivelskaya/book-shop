@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 import { BookModel } from '../../../core/models/book';
 
@@ -10,13 +10,6 @@ import { BookModel } from '../../../core/models/book';
 })
 export class BookComponent {
   @Input() book: BookModel;
-  @Output() bookOrder = new EventEmitter<BookModel>();
 
   constructor() { }
-
-  onBuyButtonClick(): void {
-    if(this.book.isAvailable) {
-      this.bookOrder.emit(this.book);
-    }
-  }
 }

@@ -6,27 +6,26 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { BookModel } from '../../../core/models/book';
 import { HttpDataService } from '../../../core/services/http-data/http-data.service';
-import { AppState } from '../../../store/state/app.state';
-import { GetBooks, GetBooksError, GetBooksSuccess, BookActionsEnum } from '../actions/book.actions';
-import { GetBook, GetBookError, GetBookSuccess } from '../actions/book.actions';
+import { GetBooksError, GetBooksSuccess } from '../actions/book.actions';
+import { GetBookError, GetBookSuccess } from '../actions/book.actions';
+import * as BookActions from '../actions/book.actions';
 
 @Injectable ()
 export class BookEffects {
   constructor(
     private httpService: HttpDataService,
     private actions$: Actions,
-    private store: Store<AppState>,
   ) {}
 
   getBooks$ = createEffect(() =>
     this.actions$.pipe(
-      ofType<GetBooks>(BookActionsEnum.GetBooks),
+      ofType(BookActions.GetBooks),
       switchMap(() =>
         this.httpService.getBooks().pipe(
           map(
-            (books) => new GetBooksSuccess(books),
+            (books) => GetBooksSuccess({books: books}),
           ),
-          catchError(() => of(new GetBooksError())),
+          catchError(() => of(GetBooksError())),
         ),
       ),
     ),
@@ -34,13 +33,13 @@ export class BookEffects {
 
   getBook$ = createEffect(() =>
     this.actions$.pipe(
-      ofType<GetBook>(BookActionsEnum.GetBook),
-      switchMap((action: GetBook) =>
-        this.httpService.getBook(action.payload.id).pipe(
+      ofType(BookActions.GetBook),
+      switchMap((action: any) =>
+        this.httpService.getBook(action.id).pipe(
           map(
-            (book: BookModel) => new GetBookSuccess(book),
+            (book: BookModel) => GetBookSuccess({selectedBook: book}),
           ),
-          catchError(() => of(new GetBookError())),
+          catchError(() => of(GetBookError())),
         ),
       ),
     ),

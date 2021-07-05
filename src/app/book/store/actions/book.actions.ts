@@ -1,83 +1,58 @@
-import { Action } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
 import { BookModel } from '../../../core/models/book';
 
-export enum BookActionsEnum {
-  GetBooks = '[Book] Get Books',
-  GetBooksSuccess = '[Book] Get Books Success',
-  GetBooksError = '[Books] Get Books Error',
+export const GetBooks = createAction (
+  '[Book] Get Books',
+)
 
-  GetBook = '[Book] Get Book',
-  GetBookSuccess = '[Book] Get Book Success',
-  GetBookError = '[Book] Get Book Error',
+export const GetBooksSuccess = createAction (
+  '[Book] Get Books Success',
+  props<{ books: BookModel[] }>()
+)
 
-  AddBookRequest = '[Create/Edit Book] Add Book Request',
-  BookAddedSuccess = '[Create/Edit Book] Book Added Success',
-  BookAddedError = '[Create/Edit Book] Book Added Error',
+export const GetBooksError = createAction (
+  '[Books] Get Books Error',
+)
 
-  UpdateBookRequest = '[Create/Edit Book] Update Book Request',
-  BookUpdatedSuccess = '[Create/Edit Book] Book Updated Success',
-  BookUpdatedError = '[Create/Edit Book] Book Updated Error'
-}
+export const GetBook = createAction (
+  '[Book] Get Book',
+  props<{ id: number }>()
+)
 
-export class GetBooks implements Action {
-  readonly type = BookActionsEnum.GetBooks;
-}
+export const GetBookSuccess = createAction (
+  '[Book] Get Book Success',
+  props<{ selectedBook: BookModel }>()
+)
 
-export class GetBooksSuccess implements Action {
-  readonly type = BookActionsEnum.GetBooksSuccess;
-  constructor(public payload: BookModel[]) {}
-}
+export const GetBookError = createAction (
+  '[Book] Get Book Error',
+)
 
-export class GetBooksError implements Action {
-  readonly type = BookActionsEnum.GetBooksError;
-}
+export const AddBookRequest = createAction (
+  '[Create/Edit Book] Add Book Request',
+  props<{ selectedBook: BookModel }>()
+)
 
-export class GetBook implements Action {
-  readonly type = BookActionsEnum.GetBook;
-  constructor(public payload: { id: number }) {}
-}
+export const BookAddedSuccess = createAction (
+  '[Create/Edit Book] Book Added Success',
+  props<{ selectedBook: BookModel }>()
+)
 
-export class GetBookSuccess implements Action {
-  readonly type = BookActionsEnum.GetBookSuccess;
-  constructor(public payload: BookModel) {}
-}
+export const BookAddedError = createAction (
+  '[Create/Edit Book] Book Added Error',
+)
 
-export class GetBookError implements Action {
-  readonly type = BookActionsEnum.GetBookError;
-}
+export const UpdateBookRequest = createAction (
+  '[Create/Edit Book] Update Book Request',
+  props<{ selectedBook: BookModel }>()
+)
 
-export class AddBookRequest implements Action {
-  readonly type = BookActionsEnum.AddBookRequest;
+export const BookUpdatedSuccess = createAction (
+  '[Create/Edit Book] Book Updated Success',
+  props< { selectedBook: Update<BookModel> }>()
+)
 
-  constructor(public payload: { book: BookModel }) {}
-}
-
-export class BookAddedSuccess implements Action {
-  readonly type = BookActionsEnum.BookAddedSuccess;
-
-  constructor(public payload: { book: BookModel }) {}
-}
-
-export class BookAddedError implements Action {
-  readonly type = BookActionsEnum.BookAddedError;
-}
-
-export class UpdateBookRequest implements Action {
-  readonly type = BookActionsEnum.UpdateBookRequest;
-
-  constructor(public payload: { book: BookModel }) {}
-}
-
-export class BookUpdatedSuccess implements Action {
-  readonly type = BookActionsEnum.BookUpdatedSuccess;
-
-  constructor(public payload: { book: Update<BookModel> }) {}
-}
-
-export class BookUpdatedError implements Action {
-  readonly type = BookActionsEnum.BookUpdatedError;
-}
-
-
-export type BookActions = GetBook | GetBookSuccess | GetBookError | GetBooks | GetBooksSuccess | GetBooksError;
+export const BookUpdatedError = createAction (
+  '[Create/Edit Book] Book Updated Error',
+)

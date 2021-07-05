@@ -1,4 +1,4 @@
-<div appFont [color]="'red'" class="book" >
+<ng-container>
   <h2>{{ book.name }}</h2>
   <div class="create-date"> {{ book.createDate }}</div>
   <p>{{ book.description }}</p>
@@ -11,4 +11,4 @@
     </span>
   </div>
   <button class="button" (click)="goBack()">Back</button>
-</div>
+</ng-container>

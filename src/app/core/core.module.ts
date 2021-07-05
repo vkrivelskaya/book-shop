@@ -4,8 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { BookModule } from '../book/book.module';
-
 import { LocalStorageService } from './services/local-storage/local-storage.service';
 import { CartService } from './services/cart/cart.service';
 
@@ -29,7 +27,6 @@ function initializeModule(appSettingsService: AppSettingService) {
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    BookModule,
     HttpClientModule,
   ],
   providers: [

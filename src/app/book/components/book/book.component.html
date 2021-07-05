@@ -1,15 +1,9 @@
-<div class="book" appFont [color]="'red'" class="book" >
-  <div>
-    <span >{{ book.id }}</span> {{ book.name }}
+<ng-container>
+  <span>{{ book.id }}</span> {{ book.name }}
     <div class="price">
-      <span>Price: {{ book.price | currency }}
+      <span>
+        Price: {{ book.price | currency }}
       </span>
     </div>
-  </div>
-  <div class="buttons-container">
-    <button class="button">
-      <a class="book-link" routerLink="/products/{{ book.id }}">Description</a>
-    </button>
-    <button class="buy-button button" [ngStyle]="{'color': book.isAvailable ? 'black' : 'gray'}" (click)="onBuyButtonClick()">Buy</button>
-  </div>
-</div>
+  <ng-content></ng-content>
+</ng-container>
