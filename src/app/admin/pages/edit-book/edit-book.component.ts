@@ -35,6 +35,12 @@ export class EditBookComponent implements OnInit {
     });
   }
 
+  getBookId(): any {
+    if (this.book && this.book.id) {
+      return this.book.id;
+    }
+  }
+
   getBook(): BookModel {
     const routeBook = this.route.snapshot.data.book;
     return routeBook ? Object.assign({}, routeBook) : {
@@ -47,13 +53,17 @@ export class EditBookComponent implements OnInit {
     };
   }
 
-  updateBook() {
-    this.book.name = this.checkoutForm.value.bookName;
-    this.book.description = this.checkoutForm.value.bookDescription;
-    this.book.price = this.checkoutForm.value.bookPrice;
-    this.book.category = this.checkoutForm.value.bookCategory;
-    this.book.createDate = this.checkoutForm.value.bookDate;
-    this.book.isAvailable = this.checkoutForm.value.available;
+  getUpdateBook() {
+    const updatedBook: BookModel = {
+      name: this.checkoutForm.value.bookName,
+      description: this.checkoutForm.value.bookDescription,
+      price: this.checkoutForm.value.bookPrice,
+      category: this.checkoutForm.value.bookCategory,
+      createDate: this.checkoutForm.value.bookDate,
+      isAvailable: this.checkoutForm.value.available,
+      id: this.getBookId(),
+    }
+    return updatedBook;
   }
 
   goBack(): void {
@@ -62,7 +72,7 @@ export class EditBookComponent implements OnInit {
 
   onSaveButtonClick(): void {
     if (this.book) {
-      this.updateBook();
+      this.book = this.getUpdateBook();
       if (this.book.id) {
         this.httpDataService.updateBook(this.book)
           .subscribe(() => this.goBack());
