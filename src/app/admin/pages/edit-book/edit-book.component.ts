@@ -1,10 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ofType } from '@ngrx/effects';
+import { ActionsSubject, Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/state/app.state';
 
 import { BookCategories } from '../../../book/constants/books';
 import { BookModel } from '../../../core/models/book';
 import { HttpDataService } from '../../../core/services/http-data/http-data.service';
+
+import * as AdminBooksActions from '../../store/actions/admin-books.actions';
+
 
 @Component({
   selector: 'app-edit-book',
@@ -12,7 +18,7 @@ import { HttpDataService } from '../../../core/services/http-data/http-data.serv
   styleUrls: ['./edit-book.component.scss'],
 })
 export class EditBookComponent implements OnInit {
-  @Input() book: BookModel;
+  book: BookModel;
   checkoutForm: FormGroup;
   categories = BookCategories;
 
@@ -21,6 +27,8 @@ export class EditBookComponent implements OnInit {
     private httpDataService: HttpDataService,
     private formBuilder: FormBuilder,
     public router: Router,
+    private store: Store<AppState>,
+    private actionListener$: ActionsSubject,
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +41,9 @@ export class EditBookComponent implements OnInit {
       bookDate: this.book.createDate,
       available: this.book.isAvailable,
     });
+    this.actionListener$.pipe(
+      ofType(AdminBooksActions.AddBookRequest, AdminBooksActions.UpdateBookRequest),
+    ).subscribe(() => this.goBack());
   }
 
   getBookId(): any {
@@ -67,18 +78,16 @@ export class EditBookComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigateByUrl('admin/products');
+    this.router.navigateByUrl('/admin/products');
   }
 
   onSaveButtonClick(): void {
     if (this.book) {
       this.book = this.getUpdateBook();
       if (this.book.id) {
-        this.httpDataService.updateBook(this.book)
-          .subscribe(() => this.goBack());
+        this.store.dispatch(AdminBooksActions.UpdateBookRequest({selectedBook: this.book}));
       } else {
-        this.httpDataService.addBook(this.book)
-          .subscribe(() => this.goBack());
+        this.store.dispatch(AdminBooksActions.AddBookRequest({selectedBook: this.book}));
       }
     }
   }

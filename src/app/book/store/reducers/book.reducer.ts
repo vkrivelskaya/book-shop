@@ -6,7 +6,7 @@ import { createReducer, on } from '@ngrx/store';
 export const booksReducers = createReducer (
   initialBookState,
   on(BookPageActions.GetBooksSuccess,
-  (state, { books }) => ({ ...state, books })),
+    (state, { books }) => ({ ...state, books })),
   on(BookPageActions.GetBooksError,
     (state) => ({ ...state, books: [] })),
   on(BookPageActions.GetBookSuccess,

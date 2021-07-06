@@ -1,5 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { Update } from '@ngrx/entity';
 import { BookModel } from '../../../core/models/book';
 
 export const GetBooks = createAction (
@@ -27,32 +26,4 @@ export const GetBookSuccess = createAction (
 
 export const GetBookError = createAction (
   '[Book] Get Book Error',
-)
-
-export const AddBookRequest = createAction (
-  '[Create/Edit Book] Add Book Request',
-  props<{ selectedBook: BookModel }>()
-)
-
-export const BookAddedSuccess = createAction (
-  '[Create/Edit Book] Book Added Success',
-  props<{ selectedBook: BookModel }>()
-)
-
-export const BookAddedError = createAction (
-  '[Create/Edit Book] Book Added Error',
-)
-
-export const UpdateBookRequest = createAction (
-  '[Create/Edit Book] Update Book Request',
-  props<{ selectedBook: BookModel }>()
-)
-
-export const BookUpdatedSuccess = createAction (
-  '[Create/Edit Book] Book Updated Success',
-  props< { selectedBook: Update<BookModel> }>()
-)
-
-export const BookUpdatedError = createAction (
-  '[Create/Edit Book] Book Updated Error',
 )

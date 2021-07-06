@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { select, Store } from '@ngrx/store';
 
-import { CartService } from '../../../core/services/cart/cart.service';
-import { HttpDataService } from '../../../core/services/http-data/http-data.service';
-
-import { OrderModel } from '../../../shared/models/order';
+import { AppState } from 'src/app/store/state/app.state';
+import { GetOrders } from '../../store/actions/admin-order.actions';
+import { selectOrdersList } from '../../store/selectors/admin-order.selectors';
 
 @Component({
   selector: 'app-admin-orders',
@@ -12,18 +11,13 @@ import { OrderModel } from '../../../shared/models/order';
   styleUrls: ['./admin-orders.component.scss'],
 })
 export class AdminOrdersComponent implements OnInit {
-  orders:  Observable<OrderModel[]>;
+  orders = this.store.pipe(select(selectOrdersList));
 
   constructor(
-    private httpDataService: HttpDataService,
-    private cartService: CartService,
+    private store: Store<AppState>,
   ) { }
 
   ngOnInit(): void {
-    this.orders = this.getOrders();
-  }
-
-  getOrders(): Observable<OrderModel[]> {
-    return this.httpDataService.getOrders();
+    this.store.dispatch(GetOrders());;
   }
 }
