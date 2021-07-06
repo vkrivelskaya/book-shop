@@ -7,17 +7,15 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { SharedModule } from '../shared/shared.module';
 import { AdminRoutingModule } from './admin-routing.module';
+import { BookModule } from '../book/book.module';
+
 
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminOrdersComponent } from './pages/admin-orders/admin-orders.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';
-import { BookModule } from '../book/book.module';
 
-import { adminBooksReducers } from './store/reducers/admin-books.reducer';
-import { AdminBookEffects } from './store/effects/admin-book.effects';
 import { reducers } from './store/reducers';
 import { AdminEffects } from './store/effects';
-
 
 @NgModule({
   declarations: [

@@ -22,7 +22,7 @@ export class BookEffects {
       switchMap(() =>
         this.httpService.getBooks().pipe(
           map(
-            (books) => GetBooksSuccess({books: books}),
+            (books) => GetBooksSuccess({ books: books }),
           ),
           catchError(() => of(GetBooksError())),
         ),
@@ -36,7 +36,7 @@ export class BookEffects {
       switchMap((action: any) =>
         this.httpService.getBook(action.id).pipe(
           map(
-            (book: BookModel) => GetBookSuccess({selectedBook: book}),
+            (book: BookModel) => GetBookSuccess({ selectedBook: book }),
           ),
           catchError(() => of(GetBookError())),
         ),

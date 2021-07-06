@@ -15,8 +15,8 @@ const routes: Routes = [
     children: [
       {  path: 'products', component: BookListComponent },
       {  path: 'product/edit/:id',
-         component: EditBookComponent,
-         resolve: {
+        component: EditBookComponent,
+        resolve: {
           book: ProductResolveService,
         } },
       {  path: 'product/add', component: EditBookComponent },

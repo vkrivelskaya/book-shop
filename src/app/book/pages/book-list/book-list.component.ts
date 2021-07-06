@@ -15,7 +15,7 @@ import { selectBooksList } from '../../store/selectors/book.selector';
   styleUrls: ['./book-list.component.scss'],
 })
 export class BookListComponent implements OnInit {
-  admin: Boolean;
+  admin: boolean;
   currentRoute: string;
   books = this.store.pipe(select(selectBooksList));
 
@@ -31,7 +31,7 @@ export class BookListComponent implements OnInit {
     this. admin = this.currentRoute.includes('admin');
   }
 
-  onBookOrdered(book:BookModel): void {
+  onBookOrdered(book: BookModel): void {
     this.cartService.addBook(book);
   }
 }

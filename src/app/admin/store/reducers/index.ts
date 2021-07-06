@@ -13,7 +13,7 @@ export interface State {
 export const initialAdminState: State = {
   order: initialAdminOrdersState,
   book: initialAdminBookState,
-}
+};
 
 export function reducers(state: State, action: Action) {
   return combineReducers({

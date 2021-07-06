@@ -18,6 +18,6 @@ export class AdminOrdersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.store.dispatch(GetOrders());;
+    this.store.dispatch(GetOrders());
   }
 }

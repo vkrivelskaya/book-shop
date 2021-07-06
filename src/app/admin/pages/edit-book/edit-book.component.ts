@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ofType } from '@ngrx/effects';
@@ -73,7 +73,7 @@ export class EditBookComponent implements OnInit {
       createDate: this.checkoutForm.value.bookDate,
       isAvailable: this.checkoutForm.value.available,
       id: this.getBookId(),
-    }
+    };
     return updatedBook;
   }
 
@@ -85,9 +85,9 @@ export class EditBookComponent implements OnInit {
     if (this.book) {
       this.book = this.getUpdateBook();
       if (this.book.id) {
-        this.store.dispatch(AdminBooksActions.UpdateBookRequest({selectedBook: this.book}));
+        this.store.dispatch(AdminBooksActions.UpdateBookRequest({ selectedBook: this.book }));
       } else {
-        this.store.dispatch(AdminBooksActions.AddBookRequest({selectedBook: this.book}));
+        this.store.dispatch(AdminBooksActions.AddBookRequest({ selectedBook: this.book }));
       }
     }
   }

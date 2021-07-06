@@ -1,4 +1,4 @@
-import { OrderModel } from "src/app/shared/models/order";
+import { OrderModel } from 'src/app/shared/models/order';
 
 export interface AdminOrdersState {
   orders: OrderModel[] | null;
@@ -8,4 +8,4 @@ export interface AdminOrdersState {
 export const initialAdminOrdersState: AdminOrdersState = {
   orders: null,
   selectedOrder: null,
-}
+};

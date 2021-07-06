@@ -19,7 +19,7 @@ export class AdminOrderEffects {
       switchMap(() =>
         this.httpService.getOrders().pipe(
           map(
-            (orders) => AdminOrdersAction.GetOrdersSuccess({orders: orders}),
+            (orders) => AdminOrdersAction.GetOrdersSuccess({ orders: orders }),
           ),
           catchError(() => of(AdminOrdersAction.GetOrdersError())),
         ),
