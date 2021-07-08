@@ -47,11 +47,11 @@ export class EditBookComponent implements OnInit, OnDestroy {
       ).subscribe(() => {
         this.goBack();
 
-      })
+      }),
     );
   }
 
-  ngOnDestroy():void {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
@@ -68,7 +68,7 @@ export class EditBookComponent implements OnInit, OnDestroy {
       category: BookCategories.Romance,
       createDate: 0,
       isAvailable: false,
-    }
+    };
   }
 
   getUpdateBook(): BookModel {

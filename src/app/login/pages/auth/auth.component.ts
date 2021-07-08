@@ -11,7 +11,7 @@ import { AuthService } from '../../../core/services/auth/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthComponent implements OnInit {
-  checkoutForm = new FormGroup({});
+  checkoutForm: FormGroup;
   returnUrl: string;
 
   constructor(
@@ -21,18 +21,24 @@ export class AuthComponent implements OnInit {
     private router: Router,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.authService.logout();
+    this.checkoutForm = new FormGroup({});
     this.checkoutForm = this.formBuilder.group({
       login: '',
       password: '',
     });
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+    this.returnUrl = this.getUrl();
+  }
+
+  getUrl(): string {
+    return this.route.snapshot.queryParams.returnUrl || '/';
   }
 
   onSubmit(): void {
-    const formValue: any = this.checkoutForm.value;
-    this.authService.login(formValue.login, formValue.password);
+    const { login, password } = this.checkoutForm.value;
+
+    this.authService.login(login, password);
     this.router.navigateByUrl(this.returnUrl);
   }
 }

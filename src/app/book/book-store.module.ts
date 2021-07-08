@@ -6,12 +6,11 @@ import { booksReducers } from './store/reducers/book.reducer';
 import { BookEffects } from './store/effects/book.effects';
 
 
-
 @NgModule({
   declarations: [],
   imports: [
     StoreModule.forFeature('books', booksReducers),
     EffectsModule.forFeature([BookEffects]),
-  ]
+  ],
 })
 export class BookStoreModule { }

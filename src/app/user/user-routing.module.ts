@@ -16,22 +16,22 @@ const routes: Routes = [
     children: [
       {
         path: 'products',
-        component: BookListComponent
+        component: BookListComponent,
       },
       {
         path: 'products/:id',
         component: BookDetailComponent,
         resolve: {
           book: ProductResolveService,
-        }
+        },
       },
       {
         path: 'cart',
-        component: CartComponent
+        component: CartComponent,
       },
       {
         path: 'order',
-        component: OrderComponent
+        component: OrderComponent,
       },
     ],
   },

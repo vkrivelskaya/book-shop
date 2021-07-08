@@ -8,7 +8,7 @@ export const booksReducers = createReducer (
   on(BookPageActions.GetBooksSuccess, (state, { books }) => ({ ...state, books })),
   on(BookPageActions.GetBooksError, (state) => ({ ...state, books: [] })),
   on(BookPageActions.GetBookSuccess, (state, { selectedBook }) => {
-    return ({ ...state, selectedBook })
+    return ({ ...state, selectedBook });
   }),
   on(BookPageActions.GetBookError, (state) => ({ ...state, selectedBook: null })),
 );

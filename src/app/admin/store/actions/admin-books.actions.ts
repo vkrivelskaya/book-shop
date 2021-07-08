@@ -12,10 +12,6 @@ export const BookAddedSuccess = createAction (
   props<{ selectedBook: BookModel }>(),
 );
 
-export const BookAddedError = createAction (
-  '[Create/Edit Book] Book Added Error',
-);
-
 export const UpdateBookRequest = createAction (
   '[Create/Edit Book] Update Book Request',
   props<{ selectedBook: BookModel }>(),
@@ -24,8 +20,4 @@ export const UpdateBookRequest = createAction (
 export const BookUpdatedSuccess = createAction (
   '[Create/Edit Book] Book Updated Success',
   props< { selectedBook: BookModel }>(),
-);
-
-export const BookUpdatedError = createAction (
-  '[Create/Edit Book] Book Updated Error',
 );

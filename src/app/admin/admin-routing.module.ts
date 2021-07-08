@@ -15,21 +15,21 @@ const routes: Routes = [
     children: [
       {
         path: 'products',
-        component: BookListComponent
+        component: BookListComponent,
       },
       {  path: 'product/edit/:id',
         component: EditBookComponent,
         resolve: {
           book: ProductResolveService,
-        }
+        },
       },
       {
         path: 'product/add',
-        component: EditBookComponent
+        component: EditBookComponent,
       },
       {
         path: 'orders',
-        component: AdminOrdersComponent
+        component: AdminOrdersComponent,
       },
     ],
   },

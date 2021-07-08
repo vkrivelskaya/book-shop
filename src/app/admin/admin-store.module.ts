@@ -6,12 +6,11 @@ import { reducers } from './store/reducers';
 import { AdminEffects } from './store/effects';
 
 
-
 @NgModule({
   declarations: [],
   imports: [
     StoreModule.forFeature('admin', reducers),
     EffectsModule.forFeature(AdminEffects),
-  ]
+  ],
 })
 export class AdminStoreModule { }
