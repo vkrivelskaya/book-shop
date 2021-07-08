@@ -33,7 +33,7 @@ export class BookEffects {
   getBook$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BookActions.GetBook),
-      switchMap((action: any) =>
+      switchMap((action: {id: number}) =>
         this.httpService.getBook(action.id).pipe(
           map(
             (book: BookModel) => GetBookSuccess({ selectedBook: book }),

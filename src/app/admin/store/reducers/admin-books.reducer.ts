@@ -5,12 +5,12 @@ import { initialAdminBookState } from '../state/admin-books.state';
 
 export const adminBooksReducers = createReducer (
   initialAdminBookState,
-  on(AdminPageActions.BookAddedSuccess,
-    (state, { selectedBook }) => ({ ...state, selectedBook })),
-  on(AdminPageActions.BookAddedError,
-    (state) => ({ ...state })),
-  on(AdminPageActions.BookUpdatedSuccess,
-    (state, { selectedBook }) => ({ ...state, selectedBook })),
-  on(AdminPageActions.BookUpdatedError,
-    (state) => ({ ...state })),
+  on(AdminPageActions.BookAddedSuccess, (state, { selectedBook }) => {
+    return ({ ...state, selectedBook })
+  }),
+  on(AdminPageActions.BookAddedError, (state) => ({ ...state })),
+  on(AdminPageActions.BookUpdatedSuccess, (state, { selectedBook }) => {
+    return ({ ...state, selectedBook })
+  }),
+  on(AdminPageActions.BookUpdatedError, (state) => ({ ...state })),
 );

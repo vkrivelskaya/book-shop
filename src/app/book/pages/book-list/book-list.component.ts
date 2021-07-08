@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
@@ -13,6 +13,7 @@ import { selectBooksList } from '../../store/selectors/book.selector';
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookListComponent implements OnInit {
   admin: boolean;

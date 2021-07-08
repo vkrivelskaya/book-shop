@@ -13,14 +13,24 @@ const routes: Routes = [
     path: '',
     component: AdminComponent,
     children: [
-      {  path: 'products', component: BookListComponent },
+      {
+        path: 'products',
+        component: BookListComponent
+      },
       {  path: 'product/edit/:id',
         component: EditBookComponent,
         resolve: {
           book: ProductResolveService,
-        } },
-      {  path: 'product/add', component: EditBookComponent },
-      {  path: 'orders', component: AdminOrdersComponent },
+        }
+      },
+      {
+        path: 'product/add',
+        component: EditBookComponent
+      },
+      {
+        path: 'orders',
+        component: AdminOrdersComponent
+      },
     ],
   },
 ];

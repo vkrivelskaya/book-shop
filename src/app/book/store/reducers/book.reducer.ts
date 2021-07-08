@@ -5,12 +5,10 @@ import { createReducer, on } from '@ngrx/store';
 
 export const booksReducers = createReducer (
   initialBookState,
-  on(BookPageActions.GetBooksSuccess,
-    (state, { books }) => ({ ...state, books })),
-  on(BookPageActions.GetBooksError,
-    (state) => ({ ...state, books: [] })),
-  on(BookPageActions.GetBookSuccess,
-    (state, { selectedBook }) => ({ ...state, selectedBook })),
-  on(BookPageActions.GetBookError,
-    (state) => ({ ...state, selectedBook: null })),
+  on(BookPageActions.GetBooksSuccess, (state, { books }) => ({ ...state, books })),
+  on(BookPageActions.GetBooksError, (state) => ({ ...state, books: [] })),
+  on(BookPageActions.GetBookSuccess, (state, { selectedBook }) => {
+    return ({ ...state, selectedBook })
+  }),
+  on(BookPageActions.GetBookError, (state) => ({ ...state, selectedBook: null })),
 );

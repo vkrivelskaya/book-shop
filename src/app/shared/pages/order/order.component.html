@@ -19,13 +19,13 @@
 </div>
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
   <div>
-    <label for="address">
+    <label for="address" class="label">
       Delivery address
     </label>
     <input id="name" type="text" formControlName="address">
   </div>
   <div>
-    <label for="payment">
+    <label for="payment" class="label">
       Payment
     </label>
     <select id="payment" formControlName="payment">
@@ -33,7 +33,7 @@
     </select>
   </div>
   <div>
-    <label for="comments">
+    <label for="comments" class="label">
       Comments
     </label>
     <textarea id="comments" formControlName="comments" rows="4" cols="50"></textarea>

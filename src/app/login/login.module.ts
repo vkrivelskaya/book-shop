@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginRoutingModule } from './login-routing.module';
 import { AuthComponent } from './pages/auth/auth.component';
 
-
 @NgModule({
   declarations: [
     AuthComponent,
@@ -16,6 +15,5 @@ import { AuthComponent } from './pages/auth/auth.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  exports: [ ],
 })
 export class LoginModule { }

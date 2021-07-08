@@ -14,13 +14,25 @@ const routes: Routes = [
     path: '',
     component: UserComponent,
     children: [
-      { path: 'products', component: BookListComponent },
-      { path: 'products/:id', component: BookDetailComponent,
+      {
+        path: 'products',
+        component: BookListComponent
+      },
+      {
+        path: 'products/:id',
+        component: BookDetailComponent,
         resolve: {
           book: ProductResolveService,
-        } },
-      { path: 'cart', component: CartComponent },
-      { path: 'order', component: OrderComponent },
+        }
+      },
+      {
+        path: 'cart',
+        component: CartComponent
+      },
+      {
+        path: 'order',
+        component: OrderComponent
+      },
     ],
   },
 ];
