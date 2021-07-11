@@ -4,13 +4,13 @@ import { User } from '../../../core/models/user';
 
 @Injectable()
 export class ActiveUserService {
-  user: User|null = null;
+  user: User | null = null;
 
-  setUser(user: User|null): void {
+  setUser(user: User | null): void {
     this.user = user;
   }
 
-  getUser(): User|null {
+  getUser(): User | null {
     return this.user;
   }
 }

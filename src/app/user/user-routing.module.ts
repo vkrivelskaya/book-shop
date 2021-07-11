@@ -6,8 +6,8 @@ import { OrderComponent } from '../shared/pages/order/order.component';
 import { UserComponent } from './pages/user/user.component';
 import { BookListComponent } from '../book/pages/book-list/book-list.component';
 import { BookDetailComponent } from '../book/pages/book-detail/book-detail.component';
-import { ProductResolveService } from '../core/services/product-resolve/product-resolve.service';
 
+import { ProductResolveService } from '../core/services/product-resolve/product-resolve.service';
 
 const routes: Routes = [
   {

@@ -6,7 +6,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { LocalStorageService } from './services/local-storage/local-storage.service';
 import { CartService } from './services/cart/cart.service';
-
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth/auth.service';
 import { ProductResolveService } from './services/product-resolve/product-resolve.service';
@@ -20,8 +19,6 @@ function initializeModule(appSettingsService: AppSettingService) {
 }
 
 @NgModule({
-  declarations: [
-  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -40,7 +37,6 @@ function initializeModule(appSettingsService: AppSettingService) {
     AppSettingService,
     { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
     { provide: APP_INITIALIZER, useFactory: initializeModule, deps: [AppSettingService], multi: true },
-
   ],
 })
 export class CoreModule { }

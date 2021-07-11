@@ -5,8 +5,8 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { BookModel } from '../../../core/models/book';
 import { HttpDataService } from '../../../core/services/http-data/http-data.service';
-import { GetBooksError, GetBooksSuccess } from '../actions/book.actions';
-import { GetBookError, GetBookSuccess } from '../actions/book.actions';
+import { FetchBooksError, FetchBooksSuccess } from '../actions/book.actions';
+import { FetchBookError, FetchBookSuccess } from '../actions/book.actions';
 import * as BookActions from '../actions/book.actions';
 
 @Injectable ()
@@ -18,13 +18,13 @@ export class BookEffects {
 
   getBooks$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(BookActions.GetBooks),
+      ofType(BookActions.FetchBooks),
       switchMap(() =>
         this.httpService.getBooks().pipe(
           map(
-            (books) => GetBooksSuccess({ books: books }),
+            (books) => FetchBooksSuccess({ books: books }),
           ),
-          catchError(() => of(GetBooksError())),
+          catchError(() => of(FetchBooksError())),
         ),
       ),
     ),
@@ -32,13 +32,13 @@ export class BookEffects {
 
   getBook$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(BookActions.GetBook),
+      ofType(BookActions.FetchBook),
       switchMap((action: {id: number}) =>
         this.httpService.getBook(action.id).pipe(
           map(
-            (book: BookModel) => GetBookSuccess({ selectedBook: book }),
+            (book: BookModel) => FetchBookSuccess({ selectedBook: book }),
           ),
-          catchError(() => of(GetBookError())),
+          catchError(() => of(FetchBookError())),
         ),
       ),
     ),

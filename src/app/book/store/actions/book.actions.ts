@@ -1,29 +1,29 @@
 import { createAction, props } from '@ngrx/store';
 import { BookModel } from '../../../core/models/book';
 
-export const GetBooks = createAction (
+export const FetchBooks = createAction (
   '[Book] Get Books',
 );
 
-export const GetBooksSuccess = createAction (
+export const FetchBooksSuccess = createAction (
   '[Book] Get Books Success',
   props<{ books: BookModel[] }>(),
 );
 
-export const GetBooksError = createAction (
+export const FetchBooksError = createAction (
   '[Books] Get Books Error',
 );
 
-export const GetBook = createAction (
+export const FetchBook = createAction (
   '[Book] Get Book',
   props<{ id: number }>(),
 );
 
-export const GetBookSuccess = createAction (
+export const FetchBookSuccess = createAction (
   '[Book] Get Book Success',
   props<{ selectedBook: BookModel }>(),
 );
 
-export const GetBookError = createAction (
+export const FetchBookError = createAction (
   '[Book] Get Book Error',
 );

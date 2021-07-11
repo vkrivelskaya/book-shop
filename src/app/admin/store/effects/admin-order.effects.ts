@@ -15,13 +15,13 @@ export class AdminOrderEffects {
 
   getOrders$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(AdminOrdersAction.GetOrders),
+      ofType(AdminOrdersAction.FetchOrders),
       switchMap(() =>
         this.httpService.getOrders().pipe(
           map(
-            (orders) => AdminOrdersAction.GetOrdersSuccess({ orders: orders }),
+            (orders) => AdminOrdersAction.FetchOrdersSuccess({ orders: orders }),
           ),
-          catchError(() => of(AdminOrdersAction.GetOrdersError())),
+          catchError(() => of(AdminOrdersAction.FetchOrdersError())),
         ),
       ),
     ),

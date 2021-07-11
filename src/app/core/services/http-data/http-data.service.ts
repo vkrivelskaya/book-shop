@@ -4,11 +4,12 @@ import { Observable } from 'rxjs';
 
 import { BookModel } from '../../models/book';
 import { OrderModel } from '../../../shared/models/order';
+import { booksUrl, ordersUrl } from '../../constants/urls';
 
 @Injectable()
 export class HttpDataService {
-  private booksUrl = 'http://localhost:3000/books';
-  private ordersUrl = 'http://localhost:3000/orders';
+  private booksUrl = booksUrl;
+  private ordersUrl = ordersUrl;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
@@ -26,9 +27,9 @@ export class HttpDataService {
     return this.http.get<BookModel>(url);
   }
 
-  updateBook(book: BookModel): Observable<any> {
+  updateBook(book: BookModel): Observable<BookModel> {
     const url = `${this.booksUrl}/${book.id}`;
-    return this.http.put(url, book, this.httpOptions);
+    return this.http.put<BookModel>(url, book, this.httpOptions);
   }
 
   addBook(book: BookModel): Observable<BookModel> {

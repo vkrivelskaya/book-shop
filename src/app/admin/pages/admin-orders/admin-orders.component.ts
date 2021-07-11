@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { OrderModel } from 'src/app/shared/models/order';
 
 import { AppState } from 'src/app/store/state/app.state';
-import { GetOrders } from '../../store/actions/admin-order.actions';
+import { FetchOrders } from '../../store/actions/admin-order.actions';
 import { selectOrdersList } from '../../store/selectors/admin-order.selectors';
 
 @Component({
@@ -22,6 +22,6 @@ export class AdminOrdersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.store.dispatch(GetOrders());
+    this.store.dispatch(FetchOrders());
   }
 }

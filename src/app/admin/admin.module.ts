@@ -8,7 +8,6 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { BookModule } from '../book/book.module';
 import { AdminStoreModule } from './admin-store.module';
 
-
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminOrdersComponent } from './pages/admin-orders/admin-orders.component';
 import { EditBookComponent } from './pages/edit-book/edit-book.component';

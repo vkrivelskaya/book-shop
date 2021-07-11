@@ -5,6 +5,6 @@ import { initialAdminOrdersState } from '../state/admin-orders.state';
 
 export const adminOrdersReducers = createReducer (
   initialAdminOrdersState,
-  on(AdminPageOrderActions.GetOrdersSuccess, (state, { orders }) => ({ ...state, orders })),
-  on(AdminPageOrderActions.GetOrdersError, (state) => ({ ...state, orders: [] })),
+  on(AdminPageOrderActions.FetchOrdersSuccess, (state, { orders }) => ({ ...state, orders })),
+  on(AdminPageOrderActions.FetchOrdersError, (state) => ({ ...state, orders: [] })),
 );

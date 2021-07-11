@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o",
-    "server": "json-server --watch db.json",
+    "start:client": "ng serve -o",
+    "start:server": "json-server --watch db.json",
+    "start": "json-server --watch db.json && ng serve -o",
     "lint": "ng lint",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

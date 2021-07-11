@@ -14,11 +14,11 @@ export class FontDirective {
     setTimeout(() => this.removeFontAndBorderChanges(), 1000);
   }
 
-  private changeFontAndBorder(font: string, borderSize: string, border: string) {
+  private changeFontAndBorder(font: string, borderSize: string, border: string): void {
     this.renderer2.setStyle(this.elementRef.nativeElement, 'fontSize', font);
     this.renderer2.setStyle(this.elementRef.nativeElement, 'border', `${borderSize} ${border} ${this.color}`);
   }
-  private removeFontAndBorderChanges() {
+  private removeFontAndBorderChanges(): void {
     this.renderer2.removeStyle(this.elementRef.nativeElement, 'fontSize');
     this.renderer2.removeStyle(this.elementRef.nativeElement, 'border');
   }

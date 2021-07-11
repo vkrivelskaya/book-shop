@@ -11,7 +11,7 @@ import { EnumToArrayPipe } from './pipes/enum.pipe';
 import { OrderComponent } from './pages/order/order.component';
 
 import { OrderService } from './services/order/order.service';
-
+import { SharedStoreModule } from './shared-store.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import { OrderService } from './services/order/order.service';
     RouterModule,
     ReactiveFormsModule,
     CommonModule,
+    SharedStoreModule,
   ],
   exports: [
     FontDirective,

@@ -10,10 +10,20 @@
 	text-align: center;
 }
 
-a {
+.link {
 	text-decoration: none;
 }
 
-button {
+.button {
 	margin: 15px 10px 15px 0;
+  padding: 7px 15px;
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 5px gray;
+  border: none;
+  width: fit-content;
+  color: black;
+  width: 20%;
+  text-align: center;
+  background-color: rgb(239, 239, 239);
 }

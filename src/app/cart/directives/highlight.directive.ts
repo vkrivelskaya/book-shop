@@ -4,7 +4,6 @@ import { Directive, ElementRef, HostBinding, HostListener } from '@angular/core'
   selector: '[appHighlight]',
 })
 export class HighlightDirective {
-
   constructor(private el: ElementRef) { }
 
   @HostBinding('style.cursor') get getCursor() {
@@ -19,8 +18,7 @@ export class HighlightDirective {
     this.highlight('');
   }
 
-  private highlight(color: string) {
+  private highlight(color: string): void {
     this.el.nativeElement.style.backgroundColor = color;
   }
-
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { CartItem } from '../../../core/models/cart-item';
 
@@ -9,6 +9,7 @@ import { CartService } from '../../../core/services/cart/cart.service';
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartComponent implements OnInit {
   title = 'Cart';
@@ -20,7 +21,7 @@ export class CartComponent implements OnInit {
     private appSettingsService: AppSettingService,
   ) { }
 
-  getSettings(): any {
+  getSettings(): string {
     return this.appSettingsService.getSetting('sortField');
   }
 
@@ -43,24 +44,24 @@ export class CartComponent implements OnInit {
     this.orderedBy = this.getSettings();
   }
 
-  onCartItemDelete(cartItem: CartItem) {
+  onCartItemDelete(cartItem: CartItem): void {
     this.cartService.removeBook(cartItem);
   }
 
-  onCartItemCountChange(cartItem: CartItem) {
+  onCartItemCountChange(cartItem: CartItem): void {
     this.cartService.changeItemTotalSum(cartItem);
     this.cartService.updateCartData();
   }
 
-  onDeleteButtonClick() {
+  onDeleteButtonClick(): void {
     this.cartService.removeAllBooks();
   }
 
-  onIncreaseQuantity(cartItem: CartItem) {
+  onIncreaseQuantity(cartItem: CartItem): void {
     this.cartService.increaseQuantity(cartItem);
   }
 
-  onDecreaseQuantity(cartItem: CartItem) {
+  onDecreaseQuantity(cartItem: CartItem): void {
     this.cartService.decreaseQuantity(cartItem);
   }
 }

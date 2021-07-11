@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
+import { Store } from '@ngrx/store';
 
 import { CartItem } from '../../../core/models/cart-item';
 import { OrderModel } from '../../models/order';
@@ -9,6 +10,9 @@ import { CartService } from '../../../core/services/cart/cart.service';
 import { HttpDataService } from '../../../core/services/http-data/http-data.service';
 
 import { Payment } from '../../../shared/constants/payment';
+
+import { AppState } from 'src/app/store/state/app.state';
+import { AddOrderRequest } from '../../store/actions/order.actions';
 
 @Component({
   selector: 'app-order',
@@ -19,18 +23,14 @@ import { Payment } from '../../../shared/constants/payment';
 export class OrderComponent  implements OnInit {
   payments = Payment;
   order: OrderModel;
-  checkoutForm = this.formBuilder.group({
-    address: '',
-    payment: 'Payment.Cash',
-    comments: '',
-    orderID: 0,
-  });
+  checkoutForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private cartService: CartService,
     private httpDataService: HttpDataService,
     private location: Location,
+    private store: Store<AppState>,
   ) { }
 
   get items(): CartItem[] {
@@ -45,10 +45,16 @@ export class OrderComponent  implements OnInit {
     return this.cartService.getTotalCount();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.cartService.getCartItems();
     this.cartService.getTotalCount();
     this.cartService.getTotalSum();
+    this.checkoutForm = this.formBuilder.group({
+      address: '',
+      payment: 'Payment.Cash',
+      comments: '',
+      orderID: 0,
+    });
   }
 
   goBack(): void {
@@ -66,10 +72,7 @@ export class OrderComponent  implements OnInit {
       comments: this.checkoutForm.value.comments,
       id: this.checkoutForm.value.orderID,
     };
-    this.httpDataService.addOrder(this.order)
-      .subscribe(() => {
-        this.goBack();
-        this.cartService.removeAllBooks();
-      });
+    this.cartService.removeAllBooks();
+    this.store.dispatch(AddOrderRequest({ selectedOrder: this.order }));
   }
 }

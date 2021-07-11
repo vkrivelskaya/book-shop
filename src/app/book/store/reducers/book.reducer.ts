@@ -1,14 +1,14 @@
-import { initialBookState } from '../state/book.state';
-import * as BookPageActions from '../actions/book.actions';
 import { createReducer, on } from '@ngrx/store';
 
+import { initialBookState } from '../state/book.state';
+import * as BookPageActions from '../actions/book.actions';
 
 export const booksReducers = createReducer (
   initialBookState,
-  on(BookPageActions.GetBooksSuccess, (state, { books }) => ({ ...state, books })),
-  on(BookPageActions.GetBooksError, (state) => ({ ...state, books: [] })),
-  on(BookPageActions.GetBookSuccess, (state, { selectedBook }) => {
+  on(BookPageActions.FetchBooksSuccess, (state, { books }) => ({ ...state, books })),
+  on(BookPageActions.FetchBooksError, (state) => ({ ...state, books: [] })),
+  on(BookPageActions.FetchBookSuccess, (state, { selectedBook }) => {
     return ({ ...state, selectedBook });
   }),
-  on(BookPageActions.GetBookError, (state) => ({ ...state, selectedBook: null })),
+  on(BookPageActions.FetchBookError, (state) => ({ ...state, selectedBook: null })),
 );

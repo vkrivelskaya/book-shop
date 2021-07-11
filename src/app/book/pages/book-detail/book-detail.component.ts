@@ -17,9 +17,8 @@ export class BookDetailComponent implements OnInit {
     public router: Router,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.book = this.getBook();
-
   }
 
   getBook(): BookModel {

@@ -5,29 +5,30 @@ import { retry } from 'rxjs/operators';
 
 import { defaultSettings } from '../../constants/settings';
 import { SettingsModel } from '../../models/settings-model';
+
 import { LocalStorageService } from '../local-storage/local-storage.service';
 
 @Injectable()
 export class AppSettingService {
   jsonURL = 'assets/app-settings.json';
   settings: SettingsModel = defaultSettings;
+
   constructor(
     private localStorage: LocalStorageService,
     private http: HttpClient,
   ) { }
 
-
-  getSetting(key: string): any {
+  getSetting(key: string): string {
     return this.settings[key as keyof SettingsModel];
   }
 
-  saveSettings() {
+  saveSettings(): void {
     const localSettings = JSON.stringify(this.settings);
     this.localStorage.setItem('settings', localSettings);
   }
 
-  loadSettings(): Observable<any> {
-    return new Observable((observer: Observer<any>) => {
+  loadSettings(): Observable<SettingsModel> {
+    return new Observable((observer: Observer<SettingsModel>) => {
       const localSettings = this.localStorage.getItem('settings');
       const defaultSettingsKeys = Object.keys(defaultSettings);
 

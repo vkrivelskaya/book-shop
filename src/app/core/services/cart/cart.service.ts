@@ -11,10 +11,10 @@ export class CartService {
 
   constructor() { }
 
-  addBook(book: BookModel) {
+  addBook(book: BookModel): void {
     const existingItemIndex = this.items.findIndex((el) => el.book === book);
 
-    if(existingItemIndex >= 0) {
+    if (existingItemIndex >= 0) {
       const item = this.items[existingItemIndex];
       const newItem = CartItem.clone(item);
       newItem.count++;
@@ -27,48 +27,48 @@ export class CartService {
     this.updateCartData();
   }
 
-  removeBook(cartItem: CartItem) {
+  removeBook(cartItem: CartItem): void {
     this.items = this.items.reduce((acc: CartItem[], el) => {
       return el !== cartItem ? [...acc, el]: acc;
     }, []);
     this.updateCartData();
   }
 
-  increaseQuantity(cartItem: CartItem) {
+  increaseQuantity(cartItem: CartItem): void {
     cartItem.count += 1;
     this.changeItemTotalSum(cartItem);
     this.updateCartData();
   }
 
-  decreaseQuantity(cartItem: CartItem) {
+  decreaseQuantity(cartItem: CartItem): void {
     cartItem.count -= 1;
     this.changeItemTotalSum(cartItem);
     this.updateCartData();
   }
 
-  removeAllBooks() {
+  removeAllBooks(): void {
     this.items.length = 0;
     this.updateCartData();
   }
 
-  updateCartData() {
+  updateCartData(): void {
     this.totalQuantity = this.items.reduce((acc, el) =>  (acc + el.count), 0);
     this.totalSum = this.items.reduce((acc, el) =>  (acc + el.total), 0);
   }
 
-  changeItemTotalSum(cartItem: CartItem) {
+  changeItemTotalSum(cartItem: CartItem): void {
     cartItem.total = cartItem.count * cartItem.book.price;
   }
 
-  getTotalSum() {
+  getTotalSum(): number {
     return this.totalSum;
   }
 
-  getTotalCount() {
+  getTotalCount(): number {
     return this.totalQuantity;
   }
 
-  getCartItems() {
+  getCartItems(): CartItem[] {
     return this.items;
   }
 }

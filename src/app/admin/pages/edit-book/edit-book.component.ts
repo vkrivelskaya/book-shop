@@ -1,15 +1,13 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ofType } from '@ngrx/effects';
-import { ActionsSubject, Store } from '@ngrx/store';
+import { ActivatedRoute } from '@angular/router';
 
 import { BookCategories } from '../../../book/constants/books';
 import { BookModel } from '../../../core/models/book';
 
 import * as AdminBooksActions from '../../store/actions/admin-books.actions';
 import { AppState } from '../../../store/state/app.state';
-import { Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-edit-book',
@@ -17,18 +15,15 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./edit-book.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EditBookComponent implements OnInit, OnDestroy {
+export class EditBookComponent implements OnInit {
   book: BookModel;
   checkoutForm: FormGroup;
   categories = BookCategories;
-  private subscription = new Subscription();
 
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private router: Router,
     private store: Store<AppState>,
-    private actionListener$: ActionsSubject,
   ) { }
 
   ngOnInit(): void {
@@ -41,21 +36,9 @@ export class EditBookComponent implements OnInit, OnDestroy {
       bookDate: this.book.createDate,
       available: this.book.isAvailable,
     });
-    this.subscription.add(
-      this.actionListener$.pipe(
-        ofType(AdminBooksActions.AddBookRequest, AdminBooksActions.UpdateBookRequest),
-      ).subscribe(() => {
-        this.goBack();
-
-      }),
-    );
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
-  getBookId(): any {
+  getBookId(): number | undefined {
     return this.book.id;
   }
 
@@ -82,10 +65,6 @@ export class EditBookComponent implements OnInit, OnDestroy {
       id: this.getBookId(),
     };
     return updatedBook;
-  }
-
-  goBack(): void {
-    this.router.navigateByUrl('/admin/products');
   }
 
   onSaveButtonClick(): void {

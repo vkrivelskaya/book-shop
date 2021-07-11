@@ -1,14 +1,12 @@
-<ng-container>
-  <h2>{{ book.name }}</h2>
-  <div class="create-date"> {{ book.createDate }}</div>
-  <p>{{ book.description }}</p>
-  <div class="price">
-    <span>Price: {{ book.price | currency }}
-    </span>
-  </div>
-  <div class="category">
-    <span>Category: {{ book.category |  uppercase }}
-    </span>
-  </div>
-  <button class="button" (click)="goBack()">Back</button>
-</ng-container>
+<h2>{{ book.name }}</h2>
+<div class="create-date"> {{ book.createDate }}</div>
+<p>{{ book.description }}</p>
+<div class="price">
+  <span>Price: {{ book.price | currency }}
+  </span>
+</div>
+<div class="category">
+  <span>Category: {{ book.category |  uppercase }}
+  </span>
+</div>
+<button class="button" (click)="goBack()">Back</button>

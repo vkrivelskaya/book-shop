@@ -4,11 +4,11 @@
     <span>Price: {{ cartItem.book.price | currency }}
     </span>
   </div>
-  <div >
+  <div>
     <label for="quantity">Quantity: </label>
-    <button (click)="onIncreaseQuantity()">+</button>
-    <input type= "number" id="quantity" [(ngModel)]="cartItem.count" (ngModelChange)="onCountChange()" placeholder="1">
-    <button (click)="onDecreaseQuantity()">-</button>
+    <button (click)="increaseQuantity()">+</button>
+    <input type="number" id="quantity" [(ngModel)]="cartItem.count" (ngModelChange)="onCountChange()" placeholder="1">
+    <button (click)="decreaseQuantity()">-</button>
     <button (click)="onDeleteButton()">Delete</button>
   </div>
   <div class="total">

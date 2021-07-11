@@ -1,9 +1,7 @@
-<ng-container>
-  <span>{{ book.id }}</span> {{ book.name }}
-    <div class="price">
-      <span>
-        Price: {{ book.price | currency }}
-      </span>
-    </div>
-  <ng-content></ng-content>
-</ng-container>
+<span>{{ book.id }}</span> {{ book.name }}
+  <div class="price">
+    <span>
+      Price: {{ book.price | currency }}
+    </span>
+  </div>
+<ng-content></ng-content>

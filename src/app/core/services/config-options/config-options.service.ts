@@ -13,16 +13,16 @@ export class ConfigOptionsService {
     this.configOptions = {};
   }
 
-  setOptions({ id, login, email }: ConfigOptions) {
-    if(id) {
+  setOptions({ id, login, email }: ConfigOptions): void {
+    if (id) {
       this.configOptions.id = id;
     }
 
-    if(login) {
+    if (login) {
       this.configOptions.login = login;
     }
 
-    if(email) {
+    if (email) {
       this.configOptions.email = email;
     }
   }

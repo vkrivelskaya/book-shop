@@ -12,7 +12,7 @@ export class AuthService {
     private activeUserService: ActiveUserService,
   ) {}
 
-  login(userName: string, password: string) {
+  login(userName: string, password: string): void {
     const user = users.find((el: User) =>  el.login === userName && el.password === password);
 
     if (user) {
@@ -20,7 +20,7 @@ export class AuthService {
     }
   }
 
-  logout() {
+  logout(): void {
     this.activeUserService.setUser(null);
   }
 }

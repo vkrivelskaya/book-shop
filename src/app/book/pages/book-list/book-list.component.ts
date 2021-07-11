@@ -3,11 +3,12 @@ import { select, Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
 import { CartService } from '../../../core/services/cart/cart.service';
+
 import { AppState } from '../../../store/state/app.state';
-import { BookModel } from '../../../core/models/book';
-import { GetBooks } from '../../store/actions/book.actions';
+import { FetchBooks } from '../../store/actions/book.actions';
 import { selectBooksList } from '../../store/selectors/book.selector';
 
+import { BookModel } from '../../../core/models/book';
 
 @Component({
   selector: 'app-book-list',
@@ -16,7 +17,7 @@ import { selectBooksList } from '../../store/selectors/book.selector';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookListComponent implements OnInit {
-  admin: boolean;
+  isAdmin: boolean;
   currentRoute: string;
   books = this.store.pipe(select(selectBooksList));
 
@@ -27,12 +28,12 @@ export class BookListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.store.dispatch(GetBooks());
+    this.store.dispatch(FetchBooks());
     this.currentRoute = this.router.url;
-    this. admin = this.currentRoute.includes('admin');
+    this.isAdmin = this.currentRoute.includes('admin');
   }
 
-  onBookOrdered(book: BookModel): void {
+  onBookOrder(book: BookModel): void {
     this.cartService.addBook(book);
   }
 }
