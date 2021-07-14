@@ -1,8 +1,8 @@
-import { EnumPipe } from './enum.pipe';
+import { EnumToArrayPipe } from './enum.pipe';
 
 describe('EnumPipe', () => {
   it('create an instance', () => {
-    const pipe = new EnumPipe();
+    const pipe = new EnumToArrayPipe();
     expect(pipe).toBeTruthy();
   });
 });

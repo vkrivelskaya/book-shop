@@ -2,7 +2,7 @@
   <a class="add-book-link link button" routerLink="/admin/product/add">Add new book</a>
 </div>
 <ul class="books-list">
-  <li class="book-container" *ngFor="let book of books | async" appFont [color]="'red'">
+  <li class="book-container" *ngFor="let book of books | async" appFont [color]="'blue'">
     <app-book class="book" [book]="book">
       <div class="buttons-container" *ngIf="!isAdmin else editButton">
         <a class="book-link link button" routerLink="/products/{{ book.id }}">Description</a>
