@@ -9,7 +9,7 @@
     <button (click)="increaseQuantity()">+</button>
     <input type="number" id="quantity" [(ngModel)]="cartItem.count" (ngModelChange)="onCountChange()" placeholder="1">
     <button (click)="decreaseQuantity()">-</button>
-    <button (click)="onDeleteButton()">Delete</button>
+    <button class="button" (click)="onDeleteButton()">Delete</button>
   </div>
   <div class="total">
     <span>Total: {{ cartItem.total | currency }}

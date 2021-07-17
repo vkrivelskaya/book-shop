@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute,  Router } from '@angular/router';
 
 import { AuthService } from '../../../core/services/auth/auth.service';
 
@@ -32,7 +32,7 @@ export class AuthComponent implements OnInit {
   }
 
   getUrl(): string {
-    return this.route.snapshot.queryParams.returnUrl || '/';
+    return this.route.snapshot.queryParams?.returnUrl || '/';
   }
 
   onSubmit(): void {

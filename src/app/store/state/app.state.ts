@@ -2,7 +2,7 @@ import { RouterReducerState } from '@ngrx/router-store';
 
 import { initialAdminState, State } from 'src/app/admin/store/reducers';
 import { BookState, initialBookState } from 'src/app/book/store/state/book.state';
-import { initialOrdersState, OrdersState } from 'src/app/shared/store/state/order.state';
+import { initialOrdersState, OrdersState } from 'src/app/user/store/state/order.state';
 
 export interface AppState {
   router?: RouterReducerState;

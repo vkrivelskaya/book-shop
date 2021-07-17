@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { CartComponent } from '../cart/pages/cart/cart.component';
-import { OrderComponent } from '../shared/pages/order/order.component';
+import { OrderComponent } from './pages/order/order.component';
 import { UserComponent } from './pages/user/user.component';
 import { BookListComponent } from '../book/pages/book-list/book-list.component';
 import { BookDetailComponent } from '../book/pages/book-detail/book-detail.component';

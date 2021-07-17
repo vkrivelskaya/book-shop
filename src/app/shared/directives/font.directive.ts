@@ -5,7 +5,7 @@ import { Directive, ElementRef,  HostListener, Renderer2 } from '@angular/core';
   selector: '[appFont]',
 })
 export class FontDirective {
-  @Input() color: string = 'gray';
+  @Input() color = 'gray';
 
   constructor(private elementRef: ElementRef, private renderer2: Renderer2) { }
 

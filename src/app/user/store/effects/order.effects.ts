@@ -5,7 +5,7 @@ import { EMPTY } from 'rxjs';
 import { catchError, finalize, map, switchMap } from 'rxjs/operators';
 
 import { HttpDataService } from 'src/app/core/services/http-data/http-data.service';
-import { OrderModel } from '../../models/order';
+import { OrderModel } from '../../../shared/models/order';
 import * as OrderPageActions from '../actions/order.actions';
 
 @Injectable ()

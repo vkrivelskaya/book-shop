@@ -1,8 +1,10 @@
+@import 'src/styles/constants';
+
 .books-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  padding: 0 20px;
+  padding: 0px;
 
   .book {
     flex: 1;
@@ -14,35 +16,33 @@
 }
 
 .button {
-  margin: 20px 15px;
+  margin: 20px 15px 20px 0px;
   padding: 7px 15px;
   font-size: 15px;
   border-radius: 5px;
-  box-shadow: 4px 4px 5px gray;
+  box-shadow: 4px 4px 5px $grey;
   border: none;
   width: fit-content;
-  color: black;
-  width: 20%;
+  color: $black;
   text-align: center;
-  background-color: rgb(239, 239, 239);
+  background-color: $dark-gray;
 }
 
 .book-container {
   display: flex;
   flex-direction: column;
   flex: 1;
-  border: 1px solid grey;
+  border: 1px solid $grey;
   border-radius: 5px;
-  box-shadow: 2px 2px 7px gray;
+  box-shadow: 2px 2px 7px $grey;
   padding: 10px;
   margin-bottom: 20px;
-  color: black;
+  color: $black;
 }
 
 .buttons-container-admin {
-  padding: 0 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .link {

@@ -3,7 +3,7 @@
   <li class="order" *ngFor="let order of orders | async">
     <div>№: {{ order.id }}</div>
     <ul class="order-items-list list">
-      <li *ngFor="let item of order.items">
+      <li  *ngFor="let item of order.items">
         <div>{{ item.book.name}}</div>
         <div>{{ item.book.price | currency }}</div>
       </li>

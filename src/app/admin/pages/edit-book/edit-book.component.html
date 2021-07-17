@@ -3,19 +3,19 @@
     <label for="book-name" class="label">
       Name
     </label>
-    <input id="book-name" type="text" formControlName="bookName" placeholder="{{ book.name }}">
+    <input class="input" id="book-name" type="text" formControlName="bookName" placeholder="{{ book.name }}">
   </div>
   <div>
     <label for="book-description" class="label">
       Description
     </label>
-    <textarea id="book-description" rows="4" cols="50" formControlName="bookDescription" placeholder="{{ book.description }}"></textarea>
+    <textarea class="input" id="book-description" rows="4" cols="50" formControlName="bookDescription" placeholder="{{ book.description }}"></textarea>
   </div>
   <div>
     <label for="book-price" class="label">
       Price
     </label>
-    <input id="book-price" type="number" formControlName="bookPrice" placeholder="{{ book.price }}">
+    <input class="input" id="book-price" type="number" formControlName="bookPrice" placeholder="{{ book.price }}">
   </div>
   <div>
     <label for="category" class="label">
@@ -29,13 +29,13 @@
     <label for="book-date" class="label">
       Date
     </label>
-    <input id="book-date" type="number" formControlName="bookDate">
+    <input class="input" id="book-date" type="number" formControlName="bookDate">
   </div>
   <div>
     <label for="available" class="label">
       Available
     </label>
-    <input id="available" type="checkbox" formControlName="available" [checked]="book.isAvailable">
+    <input class="avalable-input" id="available" type="checkbox" formControlName="available" [checked]="book.isAvailable">
   </div>
 
   <button class="button">Save</button>

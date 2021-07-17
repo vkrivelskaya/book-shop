@@ -1,15 +1,24 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 
-import { AppSettingService } from 'src/app/core/services/app-settings/app-setting.service';
 import { CartService } from 'src/app/core/services/cart/cart.service';
+import { EnumToArrayPipe } from '../../../shared/pipes/enum.pipe';
 
-import { CartComponent } from './cart.component';
+import { OrderComponent } from './order.component';
 
-describe('CartComponent', () => {
-  let component: CartComponent;
-  let fixture: ComponentFixture<CartComponent>;
+const initialState = {
+  orders: {
+    orders: {
+    },
+  },
+};
 
+describe('OrderComponent', () => {
+  let component: OrderComponent;
+  let fixture: ComponentFixture<OrderComponent>;
   const mockedCartService = jasmine.createSpyObj(
     'CartService',
     [
@@ -18,31 +27,34 @@ describe('CartComponent', () => {
       'removeAllBooks', 'increaseQuantity', 'decreaseQuantity',
     ],
   );
-  const mockedAppSettingService = jasmine.createSpyObj('AppSettingService', ['getSetting']);
 
   beforeEach(async() => {
     await TestBed.configureTestingModule({
       declarations: [
-        CartComponent,
+        OrderComponent,
+        EnumToArrayPipe,
+      ],
+      imports: [
+        ReactiveFormsModule,
+        FormsModule,
+        RouterTestingModule,
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA,
       ],
       providers: [
         {
           provide: CartService,
           useValue: mockedCartService,
         },
-        {
-          provide: AppSettingService,
-          useValue: mockedAppSettingService,
-        },
+        provideMockStore({ initialState }),
       ],
-      schemas: [NO_ERRORS_SCHEMA],
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    mockedCartService.getCartItems.and.returnValue([]);
-    fixture = TestBed.createComponent(CartComponent);
+    fixture = TestBed.createComponent(OrderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,13 +1,15 @@
 import { TestBed } from '@angular/core/testing';
+
 import { UserRights } from '../../constants/user-rights';
 import { ActiveUserService } from './active-user.service';
-
 
 describe('ActiveUserService', () => {
   let service: ActiveUserService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [ActiveUserService],
+    });
     service = TestBed.inject(ActiveUserService);
   });
 
@@ -20,8 +22,8 @@ describe('ActiveUserService', () => {
       login: 'example',
       password: '1111',
       rights: [UserRights.admin],
-    }
+    };
     service.setUser(userExample);
-    expect(service.getUser()).toEqual(userExample)
-  })
+    expect(service.getUser()).toEqual(userExample);
+  });
 });

@@ -1,11 +1,13 @@
+@import 'src/styles/constants';
+
 .button {
   margin: 20px 5px;
   padding: 7px 15px;
   font-size: 15px;
   border-radius: 5px;
-  box-shadow: 4px 4px 5px gray;
+  box-shadow: 4px 4px 5px $grey;
   border: none;
   width: fit-content;
-  color: black;
-  width: 20%;
+  color: $black;
+  background-color: $dark-gray;
 }

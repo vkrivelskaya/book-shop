@@ -6,7 +6,9 @@ describe('TimingInterceptor', () => {
   let service: TimingInterceptor;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [TimingInterceptor],
+    });
     service = TestBed.inject(TimingInterceptor);
   });
 

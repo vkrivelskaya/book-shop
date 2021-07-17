@@ -23,6 +23,7 @@ export class BookDetailComponent implements OnInit {
 
   getBook(): BookModel {
     return this.route.snapshot.data.book;
+
   }
 
   goBack(): void {

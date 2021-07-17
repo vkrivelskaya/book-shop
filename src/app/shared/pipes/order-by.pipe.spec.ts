@@ -62,7 +62,7 @@ const arrayOrderByNameDescending = [
 
 const arrayOrderByNameAscending = [
   { name: 'abc',
-  price: 30,
+    price: 30,
   },
   { name: 'aggg',
     price: 1,

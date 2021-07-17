@@ -47,7 +47,7 @@ export class CartService {
   }
 
   removeAllBooks(): void {
-    this.items.length = 0;
+    this.items = [];
     this.updateCartData();
   }
 

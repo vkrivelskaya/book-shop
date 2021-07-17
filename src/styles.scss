@@ -1,4 +1,19 @@
+@import 'styles/constants';
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html,
 body {
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: $gray;
+  color: $black;
 }

@@ -1,4 +1,4 @@
-import { OrderModel } from '../../models/order';
+import { OrderModel } from '../../../shared/models/order';
 
 export interface OrdersState {
   orders: OrderModel[] | null;

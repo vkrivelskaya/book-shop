@@ -12,4 +12,4 @@ import { OrderEffects } from './store/effects/order.effects';
     EffectsModule.forFeature([OrderEffects]),
   ],
 })
-export class SharedStoreModule { }
+export class UserStoreModule { }

@@ -1,6 +1,7 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, ComponentFixtureAutoDetect } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+
 import 'jasmine';
 
 import { AppComponent } from './app.component';
@@ -11,13 +12,15 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
       ],
-      schemas: [NO_ERRORS_SCHEMA],
+      schemas: [
+        NO_ERRORS_SCHEMA,
+      ],
       declarations: [
         AppComponent,
       ],
       providers: [
-        { provide: ComponentFixtureAutoDetect, useValue: true }
-      ]
+        { provide: ComponentFixtureAutoDetect, useValue: true },
+      ],
     }).compileComponents();
   });
 
@@ -33,12 +36,12 @@ describe('AppComponent', () => {
     const h1: HTMLElement = fixture.nativeElement.querySelector('h1');
     component.title.nativeElement.textContent = 'Test Title';
     fixture.detectChanges();
-    expect(h1.textContent).toContain(component.title);
+    expect(h1.textContent).toContain('Test Title');
   });
 
-  it(`should have as title 'bookShop'`, () => {
+  it(`should have as title 'Book Shop'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title.nativeElement.textContent).toEqual('bookShop');
+    expect(app.title.nativeElement.textContent).toEqual('Book Shop');
   });
 });

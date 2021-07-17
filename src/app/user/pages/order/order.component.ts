@@ -4,11 +4,9 @@ import { Location } from '@angular/common';
 import { Store } from '@ngrx/store';
 
 import { CartItem } from '../../../core/models/cart-item';
-import { OrderModel } from '../../models/order';
+import { OrderModel } from '../../../shared/models/order';
 
 import { CartService } from '../../../core/services/cart/cart.service';
-import { HttpDataService } from '../../../core/services/http-data/http-data.service';
-
 import { Payment } from '../../../shared/constants/payment';
 
 import { AppState } from 'src/app/store/state/app.state';
@@ -28,7 +26,6 @@ export class OrderComponent  implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private cartService: CartService,
-    private httpDataService: HttpDataService,
     private location: Location,
     private store: Store<AppState>,
   ) { }
@@ -72,7 +69,7 @@ export class OrderComponent  implements OnInit {
       comments: this.checkoutForm.value.comments,
       id: this.checkoutForm.value.orderID,
     };
-    this.cartService.removeAllBooks();
     this.store.dispatch(AddOrderRequest({ selectedOrder: this.order }));
+    this.cartService.removeAllBooks();
   }
 }

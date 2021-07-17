@@ -3,6 +3,9 @@
 
 module.exports = function (config) {
   config.set({
+    files: [
+      './global-variables.js',
+  ],
     basePath: '',
     frameworks: [ 'browserify', 'jasmine', '@angular-devkit/build-angular'],
     preprocessors: {

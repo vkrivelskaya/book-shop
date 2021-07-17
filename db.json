@@ -3,7 +3,7 @@
     {
       "name": "The Financier by Theodore Dreiser",
       "description": "Frank Cowperwood, a fiercely ambitious businessman, emerges as the very embodiment of greed as he relentlessly seeks satisfaction in wealth, women, and power. As Cowperwood deals and double-deals, betrays and is in turn betrayed, his rise and fall come to represent the American success story stripped down to brutal realities-a struggle for spoils without conscience or pity. Dreiser's 1912 classic remains an unsparing social critique as well as a devastating character study of one of the most unforgettable American businessmen in twenty century literature",
-      "price": 9.99,
+      "price": 7.99,
       "category": "Romance",
       "createDate": 1912,
       "isAvailable": true,
@@ -159,15 +159,6 @@
       "payment": "Cash",
       "comments": "",
       "id": 5
-    },
-    {
-      "items": [],
-      "sum": 11.99,
-      "quantity": 1,
-      "address": "testNew",
-      "payment": "CreditCart",
-      "comments": "",
-      "id": 6
     }
   ]
 }

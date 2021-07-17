@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { OrderModel } from '../../models/order';
+import { OrderModel } from '../../../shared/models/order';
 
 export const AddOrderRequest = createAction (
   '[Create Order] Add Order Request',
