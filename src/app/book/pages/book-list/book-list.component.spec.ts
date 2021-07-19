@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockStore } from '@ngrx/store/testing';
@@ -60,7 +61,16 @@ describe('BookListComponent', () => {
         BookComponent,
       ],
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+          {
+            path: 'admin/products',
+            component: BookListComponent
+          },
+          {
+            path: 'products',
+            component: BookListComponent
+          },
+        ]),
       ],
       providers: [
         provideMockStore({ initialState }),
@@ -70,6 +80,7 @@ describe('BookListComponent', () => {
         },
         Location,
       ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
       .compileComponents();
   });
@@ -78,15 +89,15 @@ describe('BookListComponent', () => {
     fixture = TestBed.createComponent(BookListComponent);
     component = fixture.componentInstance;
     compiled = fixture.debugElement.nativeElement;
-
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 
   it('should display books', () => {
+    fixture.detectChanges();
     const bookListElements = compiled.querySelectorAll('.book-container .book');
 
     expect(bookListElements.length).toBe(bookListCount);
@@ -97,41 +108,52 @@ describe('BookListComponent', () => {
     });
   });
 
-  it('should show addBookButton, editBookButton', () => {
+  it('should show addBookButton, editBookButton', fakeAsync(() => {
+    const router = TestBed.inject(Router);
+    router.navigate(['/admin/products']);
+    tick();
+
+    fixture.detectChanges();
+
+    const addBookButton = compiled.querySelector('.add-book-link');
+    expect(addBookButton).toBeTruthy();
+
+    const editBookButtons = compiled.querySelectorAll('.book .edit-link');
+    expect(editBookButtons.length).toBe(bookListCount);
+
+  }));
+
+  it('should not show addBookButton, show buyBookButton', fakeAsync(() => {
     const router = TestBed.inject(Router);
 
-    router.navigate(['/admin/products']).then(() => {
-      const addBookButton = compiled.querySelector('.add-book-link');
-      expect(addBookButton).toBeTruthy();
+    router.navigateByUrl('/products');
+    tick();
 
-      const editBookButtons = compiled.querySelectorAll('.book .edit-link');
-      expect(editBookButtons.length).toBe(bookListCount);
-    });
-  });
+    fixture.detectChanges();
 
-  it('should not show addBookButton, show buyBookButton', () => {
+    const addBookButton = compiled.querySelector('.add-book-link');
+    expect(addBookButton).toBeFalsy();
+
+    const buyBookButtons = compiled.querySelectorAll('.book .buy-button');
+    expect(buyBookButtons.length).toBe(bookListCount);
+
+  }));
+
+  it('should check addBook function of cartService is called', fakeAsync(() => {
     const router = TestBed.inject(Router);
 
-    router.navigate(['/products']).then(() => {
-      const addBookButton = compiled.querySelector('.add-book-link');
-      expect(addBookButton).toBeFalsy();
+    router.navigateByUrl('/products');
+    tick();
 
-      const buyBookButtons = compiled.querySelectorAll('.book .buy-button');
-      expect(buyBookButtons.length).toBe(bookListCount);
-    });
-  });
+    fixture.detectChanges();
 
-  it('should check addBook function of cartService is called', () => {
-    const router = TestBed.inject(Router);
+    const buyBookButtons = compiled.querySelectorAll('.book .buy-button');
 
-    router.navigate(['/products']).then(() => {
-      const buyBookButtons = compiled.querySelectorAll('.book .buy-button');
+    buyBookButtons[0].dispatchEvent(new Event('click'));
+    fixture.detectChanges();
+    expect(cartService.addBook).toHaveBeenCalled();
 
-      buyBookButtons[0].dispatchEvent(new Event('click'));
-      fixture.detectChanges();
-      expect(cartService.addBook).toHaveBeenCalled();
-    });
-  });
+  }));
 
   it('buyBookButton should be gray', () => {
     const router = TestBed.inject(Router);
