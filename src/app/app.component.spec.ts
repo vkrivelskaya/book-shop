@@ -1,35 +1,47 @@
-import { TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed, ComponentFixtureAutoDetect } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+
+import 'jasmine';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
+  beforeEach(async() => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA,
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+      ],
+      providers: [
+        { provide: ComponentFixtureAutoDetect, useValue: true },
       ],
     }).compileComponents();
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture: ComponentFixture<AppComponent> = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'bookShop'`, () => {
+  it('should display updated title after detectChanges', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('bookShop');
+    const component: AppComponent = fixture.componentInstance;
+    const h1: HTMLElement = fixture.nativeElement.querySelector('h1');
+    component.title.nativeElement.textContent = 'Test Title';
+    fixture.detectChanges();
+    expect(h1.textContent).toContain('Test Title');
   });
 
-  it('should render title', () => {
+  it(`should have as title 'Book Shop'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('bookShop app is running!');
+    const app = fixture.componentInstance;
+    expect(app.title.nativeElement.textContent).toEqual('Book Shop');
   });
 });

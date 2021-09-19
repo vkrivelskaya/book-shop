@@ -1,0 +1,17 @@
+<h3>Orders</h3>
+<ul class="orders-list list">
+  <li class="order" *ngFor="let order of orders | async">
+    <div>№: {{ order.id }}</div>
+    <ul class="order-items-list list">
+      <li  *ngFor="let item of order.items">
+        <div>{{ item.book.name}}</div>
+        <div>{{ item.book.price | currency }}</div>
+      </li>
+    </ul>
+    <div>Total sum: {{ order.sum | currency }}</div>
+    <div>Total count: {{ order.quantity }}</div>
+    <div>Delivery address: {{ order.address }}</div>
+    <div>Payment: {{ order.payment }}</div>
+    <div>Comments: {{ order.comments }}</div>
+  </li>
+</ul>

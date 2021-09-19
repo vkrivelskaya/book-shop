@@ -1,0 +1,35 @@
+<div class="cart" *ngIf="items.length; else emptyCart">
+  <h2 class="heading">{{ title }}</h2>
+  <select class="select-field" name="sort-field" [(ngModel)]="orderedBy">
+    <option value="bookPrice">Price</option>
+    <option value="count">Quantity</option>
+    <option value="bookName">Name</option>
+  </select>
+  <select  class="select-field" name="sort-direction" [(ngModel)]="orderingDirection">
+    <option value="Descending">Descending</option>
+    <option value="Ascending">Ascending</option>
+  </select>
+  <ol class="cart-list">
+    <li *ngFor="let cartItem of items | orderBy: orderedBy: orderingDirection === 'Descending'">
+      <app-cart-item
+        [cartItem]="cartItem"
+        (itemDelete)="onCartItemDelete($event)"
+        (countChange)="onCartItemCountChange($event)"
+        (quantityIncrease)="onIncreaseQuantity($event)"
+        (quantityDecrease)="onDecreaseQuantity($event)">
+      </app-cart-item>
+    </li>
+  </ol>
+  <div>
+    <span>Total count: {{totalCount}}</span>
+  </div>
+  <div>
+    <span>Total sum: {{totalSum | currency}}</span>
+  </div>
+  <button class="button" (click)="onDeleteButtonClick()">Delete all</button>
+  <a class="link button" routerLink="/order">Order</a>
+</div>
+
+<ng-template #emptyCart>
+  <p class="empty-cart">The cart is empty!</p>
+</ng-template>

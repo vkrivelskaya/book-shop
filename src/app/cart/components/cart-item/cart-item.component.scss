@@ -1,0 +1,15 @@
+@import 'src/styles/constants';
+
+.button {
+  display: block;
+  margin: 10px 0px;
+  padding: 7px 15px;
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 5px $grey;
+  border: none;
+  width: fit-content;
+  color: $black;
+  text-align: center;
+  background-color: $dark-gray;
+}

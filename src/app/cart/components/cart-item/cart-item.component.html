@@ -1,0 +1,18 @@
+<div appHighlight class="cart-item">
+  <h4>{{ cartItem.book.name }}</h4>
+  <div class="price">
+    <span>Price: {{ cartItem.book.price | currency }}
+    </span>
+  </div>
+  <div>
+    <label for="quantity">Quantity: </label>
+    <button (click)="increaseQuantity()">+</button>
+    <input type="number" id="quantity" [(ngModel)]="cartItem.count" (ngModelChange)="onCountChange()" placeholder="1">
+    <button (click)="decreaseQuantity()">-</button>
+    <button class="button" (click)="onDeleteButton()">Delete</button>
+  </div>
+  <div class="total">
+    <span>Total: {{ cartItem.total | currency }}
+    </span>
+  </div>
+</div>

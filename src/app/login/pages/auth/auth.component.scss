@@ -1,0 +1,23 @@
+@import 'src/styles/constants';
+
+:host {
+  display: block;
+  padding: 10px 20px;
+}
+
+.button {
+  margin: 20px 0px;
+  padding: 7px 15px;
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 5px gray;
+  border: none;
+  width: fit-content;
+  color: black;
+  background-color: $dark-gray;
+}
+
+.label {
+  display: block;
+  margin: 10px;
+}

@@ -1,0 +1,13 @@
+@import 'src/styles/constants';
+
+.order {
+  margin-bottom: 15px;
+  border: 1px solid $black;
+  border-radius: 3px;
+  padding: 10px 5px;
+}
+
+.list {
+  list-style: none;
+  padding: 0px;
+}

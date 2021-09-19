@@ -1,0 +1,20 @@
+<div class="buttons-container-admin" *ngIf="isAdmin">
+  <a class="add-book-link link button" routerLink="/admin/product/add">Add new book</a>
+</div>
+<ul class="books-list">
+  <li class="book-container" *ngFor="let book of books | async" appFont [color]="'blue'">
+    <app-book class="book" [book]="book">
+      <div class="buttons-container" *ngIf="!isAdmin else editButton">
+        <a class="book-link link button" routerLink="/products/{{ book.id }}">Description</a>
+        <button class="buy-button button" [ngStyle]="{'color': book.isAvailable ? 'black' : 'gray'}" (click)="onBookOrder(book)">Buy</button>
+      </div>
+
+      <ng-template #editButton>
+        <div class="buttons-container">
+          <a class="edit-link link button" routerLink="/admin/product/edit/{{ book.id }}">Edit</a>
+        </div>
+      </ng-template>
+
+    </app-book>
+  </li>
+</ul>
